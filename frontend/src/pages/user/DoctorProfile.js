@@ -23,7 +23,7 @@ const DoctorProfile = () => {
       }
 
       try {
-        const doctorRes = await fetch(`${BASE_URL}/doctors/${doctorId}`, {
+        const doctorRes = await fetch(`${BASE_URL}/doctors/profile/${doctorId}`, {
         });
 
         if (!doctorRes.ok) throw new Error("Failed to fetch doctor profile");

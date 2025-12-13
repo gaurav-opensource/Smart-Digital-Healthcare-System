@@ -1,44 +1,105 @@
+const axios = require("axios");
+const Payment = require("../models/payment.model");
 
-const Appointment = require('../models/appointment.model.js');
-const Payment = require('../models/payment.model');
-exports.processMockPayment = async (req, res) => {
+// Generate PayPal Token
+async function generateAccessToken() {
+  const auth = Buffer.from(
+    `${process.env.PAYPAL_CLIENT_ID}:${process.env.PAYPAL_SECRET}`
+  ).toString("base64");
+
+  const response = await axios.post(
+    `${process.env.PAYPAL_API}/v1/oauth2/token`,
+    "grant_type=client_credentials",
+    {
+      headers: {
+        Authorization: `Basic ${auth}`,
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+    }
+  );
+
+  return response.data.access_token;
+}
+
+// Create PayPal Order
+exports.createOrder = async (req, res) => {
   try {
-    const { appointmentId, amount } = req.body;
-    const userId = req.user.id;
+    const { amount, description, userId, doctorId } = req.body;
 
-  
-    if (!appointmentId || !amount) {
-      return res.status(400).json({ message: 'Appointment ID and amount are required' });
-    }
+    const accessToken = await generateAccessToken();
 
-    // Verify appointment exists and belongs to user
-    const appointment = await Appointment.findById(appointmentId);
-    if (!appointment || appointment.user.toString() !== userId) {
-      return res.status(404).json({ message: 'Appointment not found or unauthorized' });
-    }
+    const order = await axios.post(
+      `${process.env.PAYPAL_API}/v2/checkout/orders`,
+      {
+        intent: "CAPTURE",
+        purchase_units: [
+          {
+            amount: { currency_code: "USD", value: amount },
+            description,
+          },
+        ],
+      },
+      { headers: { Authorization: `Bearer ${accessToken}` } }
+    );
 
-    // Check if payment already processed
-    if (appointment.status === 'Confirmed') {
-      return res.status(400).json({ message: 'Payment already processed' });
-    }
-
-    // Create payment record
-    const payment = new Payment({
-      appointment: appointmentId,
-      user: userId,
+    // Save pending payment
+    await Payment.create({
+      userId,
+      doctorId,
       amount,
-      status: 'Completed',
-      transactionId: `MOCK_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
+      description,
+      orderId: order.data.id,
+      paymentStatus: "Pending",
     });
 
-    await payment.save();
+    res.json(order.data);
+  } catch (err) {
+    console.error("Create Order Error:", err.response?.data || err.message);
+    res.status(500).json({ error: "Failed to create PayPal order" });
+  }
+};
 
-    // Update appointment status to Confirmed
-    appointment.status = 'Confirmed';
-    await appointment.save();
+// Capture PayPal Order
+exports.captureOrder = async (req, res) => {
+  try {
+    const { orderId } = req.params;
 
-    res.status(200).json({ message: 'Payment successful, appointment confirmed', payment });
-  } catch (error) {
-    res.status(500).json({ message: 'Server error', error: error.message });
+    const accessToken = await generateAccessToken();
+
+    const response = await axios.post(
+      `${process.env.PAYPAL_API}/v2/checkout/orders/${orderId}/capture`,
+      {},
+      { headers: { Authorization: `Bearer ${accessToken}` } }
+    );
+
+    const captureId =
+      response.data.purchase_units[0].payments.captures[0].id;
+
+    const updatedPayment = await Payment.findOneAndUpdate(
+      { orderId },
+      { paymentStatus: "Completed", captureId },
+      { new: true }
+    );
+
+    res.json({ success: true, payment: updatedPayment });
+  } catch (err) {
+    console.error("Capture Error:", err.response?.data || err.message);
+    res.status(500).json({ error: "Failed to capture PayPal order" });
+  }
+};
+
+// Get payments for a user or doctor
+exports.getPayments = async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    const payments = await Payment.find({
+      $or: [{ userId: id }, { doctorId: id }],
+    }).sort({ createdAt: -1 });
+
+    res.json(payments);
+  } catch (err) {
+    console.error("Fetch Payments Error:", err);
+    res.status(500).json({ error: "Failed to fetch payments" });
   }
 };

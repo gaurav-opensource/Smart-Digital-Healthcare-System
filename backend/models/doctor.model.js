@@ -52,8 +52,6 @@ const doctorSchema = new mongoose.Schema({
   "Neurology",
   "Dermatology",
   "Other",
-
-  // ✅ Added 20 more
   "Gynecology",
   "Psychiatry",
   "Radiology",

@@ -3,23 +3,27 @@ const Doctor = require('../models/doctor.model');
 const User = require('../models/user.model');
 const sendVideoCallReminder = require('../utils/emailService');
 
+//Create new appointment
 exports.createAppointment = async (req, res) => {
   try {
-    const { userId, doctorId, appointmentDate, description, amount } = req.body;
+    const { userId, doctorId, appointmentDate, description } = req.body;
 
-    if (!userId || !doctorId || !appointmentDate || !description || !amount) {
-      return res.status(400).json({ message: 'Missing required fields' });
+    // Amount removed from required fields because payment is disabled
+    if (!userId || !doctorId || !appointmentDate || !description) {
+      return res.status(400).json({ message: "Missing required fields" });
     }
 
-    const appointmentDateTime = new Date(appointmentDate);
-    const now = new Date();
+    // const appointmentDateTime = new Date(appointmentDate);
+    // const now = new Date();
 
-    if (appointmentDateTime < now) {
-      return res.status(400).json({ message: 'Cannot create appointment in the past' });
-    }
+    // if (appointmentDateTime < now) {
+    //   return res.status(400).json({ message: "Cannot create appointment in the past" });
+    // }
 
-    const [date, time] = appointmentDate.split('T');
+    // Split date and time
+    const [date, time] = appointmentDate.split("T");
 
+    // Check if doctor already has appointment
     const existingAppointment = await Appointment.findOne({
       doctor: doctorId,
       date,
@@ -27,22 +31,16 @@ exports.createAppointment = async (req, res) => {
     });
 
     if (existingAppointment) {
-      return res.status(400).json({ message: 'Doctor already has an appointment at this time' });
+      return res.status(400).json({
+        message: "Doctor already has an appointment at this time",
+      });
     }
 
     const doctor = await Doctor.findById(doctorId);
-    if (!doctor) return res.status(404).json({ message: 'Doctor not found' });
+    if (!doctor)
+      return res.status(404).json({ message: "Doctor not found" });
 
-    const availableSlot = doctor.availability.find(slot => {
-      const slotDate = slot.date.toISOString().split('T')[0];
-      return slotDate === date && time >= slot.startTime && time < slot.endTime;
-    });
-
-    if (!availableSlot) {
-      return res.status(400).json({ message: 'Doctor is not available at this time' });
-    }
-
-    // Create appointment
+    // CREATE APPOINTMENT
     const appointment = new Appointment({
       user: userId,
       doctor: doctorId,
@@ -53,25 +51,25 @@ exports.createAppointment = async (req, res) => {
 
     await appointment.save();
 
-    // Fetch full user & doctor details for email
     const user = await User.findById(userId);
-    
-    // Send email reminder asynchronously (don’t block response)
-    sendVideoCallReminder({ user, doctor, appointment }).catch(err => {
-      console.error('Error sending video call reminder:', err);
+
+    // SENDING EMAIL (ASYNC, NOT BLOCKING)
+    sendVideoCallReminder({ user, doctor, appointment }).catch((err) => {
+      console.error("Error sending video call reminder:", err);
     });
 
     res.status(201).json({
-      message: 'Appointment created successfully. Reminder emails sent.',
+      message: "Appointment created successfully. Reminder emails sent.",
       appointment,
     });
   } catch (error) {
-    console.error('Appointment creation error:', error);
-    res.status(500).json({ message: 'Error creating appointment', error: error.message });
+    console.error("Appointment creation error:", error);
+    res.status(500).json({
+      message: "Error creating appointment",
+      error: error.message,
+    });
   }
 };
-
-
 
 // Get Appointment For User
 exports.getAppointmentsByUser = async (req, res) => {
@@ -113,8 +111,6 @@ exports.getAppointmentsByDoctor = async (req, res) => {
   }
 };
 
-
-
 // Upload Report
 exports.uploadTestReport= async (req, res) => {
  try {
@@ -148,7 +144,6 @@ exports.uploadTestReport= async (req, res) => {
     });
   }
 };
-
 
 //Upload Prescription
 exports.uploadPrescription = async (req, res) => {
@@ -196,9 +191,7 @@ exports.uploadPrescription = async (req, res) => {
   }
 };
 
-
-
-
+//Get appointment by id
 exports.getAppointmentById = async (req, res) => {
   try {
     const { appointmentId } = req.params;
@@ -216,7 +209,7 @@ exports.getAppointmentById = async (req, res) => {
   }
 };
 
-
+//Get appintment by unique room id
 exports.getAppointmentByRoomId = async (req, res) => {
   const { roomId } = req.params;
   try {
@@ -230,8 +223,7 @@ exports.getAppointmentByRoomId = async (req, res) => {
   }
 };
 
-
-
+//mark appointment as completed after vidoes call
 exports.markAppointmentCompleted = async (req, res) => {
   try {
     const {userId} = req.params.id;

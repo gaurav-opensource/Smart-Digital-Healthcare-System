@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 
-
+//Schema
 const registerSchema = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().email().required(),
@@ -17,7 +17,7 @@ const loginSchema = Joi.object({
     password: Joi.string().required(),
 });
 
-
+// Handle user register functionality
 exports.register = async (req, res) => {
     try {
         const { error } = registerSchema.validate(req.body);
@@ -48,7 +48,7 @@ exports.register = async (req, res) => {
     }
 };
 
-
+// Handle login register functionality
 exports.login = async (req, res) => {
     try {
         const { error } = loginSchema.validate(req.body);
@@ -85,7 +85,7 @@ exports.login = async (req, res) => {
     }
 };
 
-
+//Get user profile
 exports.profile = (req, res) => {
     const user = req.user;
     if (!user) return res.status(400).json({ message: 'User not found' });
@@ -103,7 +103,7 @@ exports.profile = (req, res) => {
     res.status(200).json(userProfile);
 };
 
-
+//Update profile
 exports.updateProfile = async (req, res) => {
     try {
         const userId = req.user._id;

@@ -147,3 +147,148 @@
 {"level":"info","message":"Database connected successfully","timestamp":"2025-09-14T06:33:25.073Z"}
 {"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-09-14T06:34:51.169Z"}
 {"level":"info","message":"Database connected successfully","timestamp":"2025-09-14T06:34:52.707Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-09-25T09:33:05.186Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-09-25T09:33:06.484Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-17T23:11:13.606Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-17T23:11:14.693Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-27T12:02:24.542Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-27T12:02:25.669Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-27T12:43:33.629Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-27T12:43:34.838Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T11:56:26.170Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T11:56:27.656Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:16:54.752Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:16:56.336Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:18:23.208Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:18:24.733Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:28:03.730Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:28:05.111Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:33:16.921Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:33:18.201Z"}
+{"level":"info","message":"POST /api/paypal/create-order","timestamp":"2025-10-28T12:36:55.488Z"}
+{"level":"info","message":"POST /api/paypal/create-order","timestamp":"2025-10-28T12:38:24.532Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:39:28.481Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:39:30.022Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:41:41.599Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:41:42.925Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:45:34.818Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:45:36.207Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T12:57:29.649Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T12:57:31.255Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T13:38:28.735Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T13:38:30.226Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T13:44:23.264Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T13:44:25.341Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T13:47:19.478Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T13:47:21.152Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-28T13:57:21.102Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-28T13:57:23.083Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-31T14:34:36.136Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-31T14:34:38.214Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-10-31T14:44:47.946Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-10-31T14:44:49.458Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-22T13:23:37.396Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-22T13:23:39.108Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-22T17:16:09.922Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-22T17:16:11.680Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T08:13:21.471Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T08:13:22.627Z"}
+{"level":"info","message":"POST /api/admin/register","timestamp":"2025-11-23T08:20:28.830Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T08:20:52.522Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T08:20:55.165Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T08:37:22.105Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T08:37:23.257Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T08:37:31.007Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T08:37:32.173Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T08:39:30.049Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T08:39:30.914Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T08:40:42.800Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T08:40:43.712Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T08:41:39.236Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T08:41:42.495Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-23T09:38:37.064Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-23T09:38:38.302Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-24T16:47:10.477Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-24T16:47:11.737Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-24T16:55:11.153Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-24T16:55:12.270Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-24T17:09:53.146Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-24T17:09:54.342Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-25T05:04:58.253Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-25T05:05:00.270Z"}
+{"level":"info","message":"POST /api/api/appointments","timestamp":"2025-11-25T05:09:34.723Z"}
+{"level":"info","message":"POST /api/api/appointments","timestamp":"2025-11-25T05:14:46.748Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-25T05:16:10.558Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-25T05:16:12.314Z"}
+{"level":"info","message":"POST /api/api/appointments","timestamp":"2025-11-25T05:16:13.914Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-25T05:20:41.631Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-25T05:20:42.927Z"}
+{"level":"info","message":"POST /api/api/appointments","timestamp":"2025-11-25T05:21:41.766Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-25T05:22:57.590Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-25T05:22:59.153Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-25T06:22:56.863Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-25T06:22:58.443Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-25T12:15:25.200Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-25T12:15:27.130Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-25T12:24:17.557Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-26T15:34:54.156Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-26T15:34:55.685Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-26T15:37:54.999Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-26T15:37:56.712Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:38:21.278Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-26T15:39:45.960Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-26T15:39:46.871Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:39:50.704Z"}
+{"level":"info","message":"POST /predict-heart","timestamp":"2025-11-26T15:39:50.728Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-26T15:43:46.650Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-26T15:43:47.591Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:43:51.225Z"}
+{"level":"info","message":"POST /predict-heart","timestamp":"2025-11-26T15:43:51.272Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:45:18.408Z"}
+{"level":"info","message":"POST /predict-heart","timestamp":"2025-11-26T15:45:18.415Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-26T15:45:32.490Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-26T15:45:33.382Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:45:35.440Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:46:28.777Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:50:30.153Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:51:03.344Z"}
+{"level":"info","message":"POST /api/users/p","timestamp":"2025-11-26T15:51:05.453Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-27T13:24:45.547Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-27T13:24:47.215Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-27T13:37:39.560Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-27T13:37:41.357Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:40:45.274Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:47:51.695Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:50:14.602Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:50:24.599Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:51:21.856Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-27T13:52:46.553Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:52:49.565Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-27T13:52:49.825Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-27T13:53:07.284Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-27T13:53:09.646Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:53:16.692Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:54:54.099Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-27T13:55:00.074Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-27T13:55:01.981Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2025-11-27T13:55:05.596Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-28T14:48:20.667Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-28T14:48:22.002Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T14:52:09.715Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T14:52:09.737Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T14:53:31.752Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T14:53:31.758Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T14:56:08.586Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T14:56:08.613Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-28T14:57:24.185Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-28T14:57:33.649Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-28T15:02:40.154Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-28T15:02:42.412Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T15:02:49.835Z"}
+{"level":"info","message":"GET /api/doctors/6922c63ff7c7ec169bc40b75","timestamp":"2025-11-28T15:02:49.861Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-11-28T15:06:04.285Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-11-28T15:06:07.957Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-12-13T11:18:47.007Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-12-13T11:18:49.757Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2025-12-13T11:22:02.755Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2025-12-13T11:22:04.171Z"}

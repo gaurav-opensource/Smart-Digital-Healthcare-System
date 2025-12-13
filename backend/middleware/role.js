@@ -2,6 +2,8 @@ const User = require('../models/user.model');
 const Doctor = require('../models/doctor.model');
 const Admin = require('../models/admin.model');
 
+
+//Restric TO the role
 const restrictTo = (...roles) => {
     return async (req, res, next) => {
         try {

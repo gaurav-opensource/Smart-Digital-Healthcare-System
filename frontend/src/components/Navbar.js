@@ -94,6 +94,13 @@ export default function Navbar() {
             >
               Payment History
             </NavLink>
+            <NavLink
+              to="/predict"
+              className={({ isActive }) => navClass(isActive)}
+              onClick={() => setIsOpen(false)}
+            >
+              predict
+            </NavLink>
           </>
         );
       default:

@@ -2,16 +2,10 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 
+const {transporter}  = require('../config/emailConfig')
+
 const router = express.Router();
 
-// Configure transporter
-const transporter = nodemailer.createTransport({
-  service: "Gmail",
-  auth: {
-    user: "projectemail500023@gmail.com", // your Gmail
-    pass: "xums tjfw cter sbix",          // App password
-  },
-});
 
 // sendEmail function
 const sendEmail = async ({ to, subject, text, html }) => {
@@ -58,30 +52,3 @@ router.post("/send-email", async (req, res) => {
 module.exports = router;
 
 
-
-// // Function to send video call reminder to user and doctor
-// export const sendVideoCallReminder = async ({ user, doctor, appointment }) => {
-//   const callLink = `https://your-app.com/video-call/${appointment._id}`;
-
-//   // User email
-//   await sendEmail({
-//     to: user.email,
-//     subject: `Upcoming Video Call with Dr. ${doctor.name}`,
-//     html: `<p>Hello ${user.name},</p>
-//            <p>Your video call with Dr. ${doctor.name} is scheduled at <strong>${appointment.time}</strong>.</p>
-//            <p>Click here to join: <a href="${callLink}">${callLink}</a></p>`
-//   });
-
-//   // Doctor email
-//   await sendEmail({
-//     to: doctor.email,
-//     subject: `Upcoming Video Call with ${user.name}`,
-//     html: `<p>Hello Dr. ${doctor.name},</p>
-//            <p>You have an upcoming video call with ${user.name} at <strong>${appointment.time}</strong>.</p>
-//            <p>Join link: <a href="${callLink}">${callLink}</a></p>`
-//   });
-// };
-
-
-
-// module.exports = router;

@@ -1,176 +1,279 @@
-# Online Healthcare System
 
-I developed a full-stack healthcare platform that enables smart doctor-patient interaction.
-Users can search doctors, book appointments, make secure payments, and upload reports.
-I implemented role-based access for Admin, Doctor, and User, along with profile management.
-For communication, I integrated video calls using WebRTC and real-time chat using Socket.IO.
-Media files like reports and profile photos are stored on Cloudinary for scalability and performance
+# 🏥 Smart Healthcare System (Full Stack + AI Powered)
+
+I developed a full-stack AI-enabled healthcare platform that provides smart doctor-patient interaction. Users can search doctors, book appointments, make secure payments, upload medical reports, and attend video consultations.
+The system includes **role-based dashboards**, **AI-based disease prediction**, **real-time chat**, and **secure cloud storage**.
 
 ---
 
-## Table of Contents
+## 📌 Table of Contents
 
-- [About the Project](#about-the-project)  
-- [Features](#features)  
-- [Technology Stack](#technology-stack)  
-- [Getting Started](#getting-started)  
-- [Prerequisites](#prerequisites)  
-- [Installation](#installation)  
-- [Project Flow](#project-flow)  
-  - [Patient Flow](#patient-flow)  
-  - [Doctor Flow](#doctor-flow)  
-  - [Admin Flow](#admin-flow)  
-- [Future Improvements](#future-improvements)  
-- [License](#license)  
-- [Contact](#contact)  
+* [About the Project](#about-the-project)
+* [Features](#features)
+* [Technology Stack](#technology-stack)
+* [Getting Started](#getting-started)
 
----
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+* [Project Flow](#project-flow)
 
-## About the Project
-
-This project is a full-stack online healthcare system designed to bridge the gap between patients and doctors through a user-friendly and secure platform. The application provides end-to-end functionality, from user registration and doctor search to virtual consultations, secure file sharing, and prescription management. It aims to streamline the appointment process and provide a reliable telehealth solution.
+  * [Patient Flow](#patient-flow)
+  * [Doctor Flow](#doctor-flow)
+  * [Admin Flow](#admin-flow)
+* [AI Features](#ai-features)
+* [Demo Videos & Screenshots](#demo-videos--screenshots)
+* [Future Improvements](#future-improvements)
+* [License](#license)
+* [Contact](#contact)
 
 ---
 
-## Features
+## 📖 About the Project
 
-- **User Roles:** Separate portals for Patients, Doctors, and Admin.  
-- **Doctor Search & Discovery:** Patients can search for doctors based on specialization, location, and fees.  
-- **Profile Management:** Detailed profiles for doctors, including qualifications, ratings, and availability.  
-- **Secure Admin Panel:** Admins can verify and approve new doctors by checking their licenses and certificates, ensuring credibility.  
-- **Appointment Booking:** Patients can schedule appointments with a detailed explanation of their condition, date, and time.  
-- **Video Consultation:** Integrated real-time video call functionality powered by Socket.io for virtual appointments.  
-- **Real-time Chat:** A live chat system available during video consultations.  
-- **Secure File Uploads:** Patients can upload medical reports and images to a dedicated folder for the doctor using Cloudinary.  
-- **Prescription Management:** Doctors can send digital prescriptions to patients after a consultation.  
-- **Rating & Feedback:** Patients can rate and leave comments for doctors after an appointment.  
-- **Appointment Status Management:** Doctors can track pending, completed, and upcoming appointments.  
-- **Payment Integration:** The initial implementation uses a basic model, with plans for integration of Razorpay for secure payments.
-- **notifications** Email and SMS notifications for appointments
+This is a complete **online healthcare system** designed to connect patients and doctors through a secure, intuitive digital platform.
+It features:
+
+* Smart doctor search
+* End-to-end appointment flow
+* Video consultations
+* Secure file-sharing
+* AI-based disease prediction
+* Real-time chat and notifications
+
+The goal is to provide a modern and reliable telehealth experience.
 
 ---
 
-## Technology Stack
+## ⭐ Features
 
-- **Frontend:**  
-  - React  
-  - Tailwind CSS  
+### 🔐 User Roles
 
-- **Backend:**  
-  - Node.js & Express.js  
-  - MongoDB  
-  - Mongoose  
+* **Patient Portal**
+* **Doctor Portal**
+* **Admin Portal**
 
-- **Key Tools & Libraries:**  
-  - Socket.io (for video calls & chat)  
-  - Cloudinary (for file storage)  
-  - JWT (for authentication)  
-  - Bcrypt (for password hashing)  
-  - Nodemon (for development)  
+### 👨‍⚕️ Doctor Search
+
+* Search by **specialization**, **location**, **consultation fees**, and **ratings**.
+
+### 🧑‍💼 Profile Management
+
+* Doctors can update qualification, experience, availability
+* Patients can maintain health profile & upload reports
+
+### 🔒 Secure Admin Panel
+
+* Admin verifies doctor licenses & certificates
+* Approves or rejects doctor onboarding requests
+
+### 📅 Appointment Booking
+
+* Patients book slots with date, time & symptoms
+* Doctors manage pending, upcoming & completed appointments
+
+### 📞 Video Consultation (WebRTC + Socket.IO)
+
+* Real-time video calling between doctor & patient
+* Includes in-call chat and notifications
+
+### 📤 Secure Medical File Uploads
+
+* Reports & images uploaded to **Cloudinary**
+
+### 💊 Prescription Management
+
+* Doctors send digital prescriptions after consultation
+
+### ⭐ Rating System
+
+* Patients rate & review doctors
+
+### 💰 Payment Integration
+
+* Basic model ready
+* Razorpay integration planned
+
+### 🔔 Notifications
+
+* Email & SMS notifications for appointment updates
 
 ---
 
-## Getting Started
+## 🤖 AI Features
 
-### Prerequisites
+### 🔹 **AI Heart Disease Prediction Model**
 
-- Node.js (v14 or higher) and npm  
-- MongoDB database (local or cloud)  
-- Git client  
-- Cloudinary account for file uploads  
+* Uses patient input fields to predict heart disease
+* **Accuracy: 81.1%**
+* Outputs risk percentage and recommendation message
+
+### 🔹 **AI Medical Report Analyzer**
+
+* Upload medical reports (PDF/JPG/PNG)
+* Automatically extracts:
+
+  * Hemoglobin
+  * RBC/WBC
+  * Creatinine
+  * Cholesterol Levels
+  * Sugar Levels
+  * Blood Pressure
+* Provides AI-generated health summary and suggestions
 
 ---
 
-### Installation
+## 🛠️ Technology Stack
 
-1. Clone the repository:
+### **Frontend**
 
-   ```bash
-   git clone https://github.com/gaurav-opensource/online-healthcare-system.git
-   cd online-healthcare-system
-2. Setup Backend:
+* React.js
+* Tailwind CSS
+
+### **Backend**
+
+* Node.js
+* Express.js
+* MongoDB + Mongoose
+
+### **Key Tools/Libraries**
+
+* Cloudinary (file storage)
+* Socket.io (chat & signaling)
+* WebRTC (video call)
+* JWT (authentication)
+* Bcrypt (password security)
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+* Node.js v14+
+* MongoDB
+* Cloudinary account
+* Git
+
+---
+
+## Installation
+
+### 1️⃣ Clone Repository
+
+```bash
+git clone https://github.com/gaurav-opensource/online-healthcare-system.git
+cd online-healthcare-system
+```
+
+### 2️⃣ Setup Backend
 
 ```bash
 cd backend
 npm install
 ```
-Create a .env file in the backend directory with:
 
-
-
+Create `.env`:
 
 ```
 MONGO_URI=mongodb://127.0.0.1:27017/online-healthcare
 PORT=5000
 JWT_SECRET=your_super_secret_key
-CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
-CLOUDINARY_API_KEY=your_cloudinary_api_key
-CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+
+CLOUDINARY_CLOUD_NAME=xxxx
+CLOUDINARY_API_KEY=xxxx
+CLOUDINARY_API_SECRET=xxxx
 ```
--Start the backend server:
 
+Start backend:
 
-
-```
+```bash
 npm start
-Setup Frontend:
 ```
-Open a new terminal window:
 
-```
+### 3️⃣ Setup Frontend
+
+```bash
 cd frontend
 npm install
 ```
-Create a .env file in the frontend directory:
+
+Create `.env`:
 
 ```
 REACT_APP_API_URL=http://localhost:5000/api
 ```
-Start the frontend server:
 
-```
+Start frontend:
+
+```bash
 npm start
-
 ```
-# Project Flow
 
-## Patient Flow
-- Register and create account
-- Search doctors by filters (specialization, fees, location)
-- View detailed doctor profiles with ratings
-- Book appointments by selecting date, time, and describing symptoms
-- Make payments (model-based currently)
-- Join video calls with doctors at appointment time
-- Upload test reports via Cloudinary
-- Rate and comment on doctors post consultation
-- Receive digital prescriptions
+---
 
-## Doctor Flow
-- Register and submit profile with credentials
-- Get admin approval
-- Manage appointments (pending, upcoming, completed)
-- Receive notifications for video calls
-- Conduct video consultations with chat
-- Send prescriptions after consultation
+# 🔄 Project Flow
 
-## Admin Flow
-- Verify doctor licenses and certificates
-- Approve or reject doctor profiles
-- Manage users and monitor platform activity
+## 👨‍⚕️ Patient Flow
 
-## Future Improvements
-- Advanced doctor search filters
-- Enhanced dashboards with analytics
-- UI/UX improvements for better experience
-- Users can send their health issues, get suggestions for tests, upload test reports uging ML
+* Register/login
+* Search doctors by filters
+* View doctor profile
+* Book appointment
+* Make payment
+* Join video consultation
+* Upload test reports
+* Receive prescription
+* Give rating & feedback
 
+---
 
-## Contact
-For questions, suggestions, or feedback, feel free to reach out:
+## 🧑‍⚕️ Doctor Flow
 
-- **Author:** Gaurav Yadav  
-- **Email:** gauravyadavgh@example.com  
-- **LinkedIn:** [linkedin.com/in/gauravyadav](https://www.linkedin.com/in/gauravyadav95/)  
-- **GitHub:** [github.com/gauravyadav](https://github.com/gaurav-opensource)  
+* Register & upload certificates
+* Wait for admin approval
+* Manage appointments
+* Attend video consultations
+* Chat in real-time
+* Send prescriptions
 
+---
+
+## 🛡️ Admin Flow
+
+* Verify doctor documents
+* Approve/reject doctors
+* Monitor platform activity
+
+---
+
+# 🎥 Demo Videos & Screenshots
+
+> **Upload your workflow videos, UI demo videos, and screenshots here.**
+> (You can upload mp4/webm files on GitHub or add links to Google Drive / YouTube.)
+
+Example:
+
+* **Doctor Verification Flow (Video)**
+* **Patient Appointment Booking (Screenshots)**
+* **AI Report Analyzer Demonstration (Video)**
+* **Video Call UI Demo (Screenshots)**
+
+---
+
+# 🔮 Future Improvements
+
+* Add AI-based symptom checker
+* Better dashboards with analytics
+* Full Razorpay payment integration
+* Improved search using NLP
+* Full ML pipeline for automated test recommendations
+
+---
+
+# 📬 Contact
+
+**Author:** Gaurav Yadav
+**Email:** [gauravyadavgh@example.com](mailto:gauravyadavgh@example.com)
+**LinkedIn:** [https://www.linkedin.com/in/gauravyadav95/](https://www.linkedin.com/in/gauravyadav95/)
+**GitHub:** [https://github.com/gaurav-opensource](https://github.com/gaurav-opensource)
 

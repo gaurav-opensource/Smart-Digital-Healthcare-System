@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import mainImage from '../assert/Home.png';
+import mainImage from '../assert/Home.jpg';
 import aboutImage from '../assert/About.png';
 
 export default function HomePage() {
@@ -81,12 +81,15 @@ export default function HomePage() {
         <div className="container mx-auto px-4 md:px-12">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-12">
             {/* Text and CTA */}
-            <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left">
+            <div className="w-full lg:w-1/2 space-y-6 text-center lg:text-left pt-1">
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight tracking-tight">
                 Healthcare focused <br /> on <span className="text-teal-500">you</span>
               </h1>
               <p className="text-gray-600 max-w-lg mx-auto lg:mx-0">
                 Consult certified doctors online. Book appointments. Track health — anytime, anywhere.
+              </p>
+              <p className="text-gray-600 max-w-lg mx-auto lg:mx-0">
+                Predict diseases from reports, get AI‑based doctor suggestions, and check your heart health instantly.
               </p>
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 justify-center lg:justify-start">
                 <Link
@@ -104,35 +107,43 @@ export default function HomePage() {
               </div>
             </div>
 
-
-
-
             {/* Image and Features Section */}
-            <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex flex-col items-center justify-center relative">
+            <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex flex-col items-center justify-center relative pt-0">
               <div className="absolute inset-0 flex items-center justify-center -z-10">
                 <div className="w-32 h-32 bg-lime-300 rounded-full blur-3xl opacity-50"></div>
               </div>
-              <div className="w-80 md:w-96 lg:w-[32rem] h-[28rem] rounded-[3rem] overflow-hidden transform rotate-2 shadow-2xl mb-8">
+              <div className="w-64 md:w-80 lg:w-[24rem] h-[24rem] rounded-[2.5rem] overflow-hidden transform rotate-2 shadow-2xl mb-8">
                 <img
                   src={mainImage}
                   alt="Healthcare on a mobile device"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-center mt-4">
-                <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer text-center">
+
+              {/* Features Below Image */}
+              <div className="flex flex-col sm:flex-row gap-4 w-full justify-center lg:justify-center mt-4 pt-8">
+                <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer text-center w-40">
                   <span className="text-3xl">📞</span>
                   <p className="text-sm font-semibold text-gray-700 mt-2">Video Call a Doctor</p>
                 </div>
-                <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer text-center">
+                <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer w-40 text-center">
                   <span className="text-3xl">❤️</span>
                   <p className="text-sm font-semibold text-gray-700 mt-2">Track Your Health</p>
+                </div>
+                <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer w-40 text-center">
+                  <span className="text-3xl">🧠</span>
+                  <p className="text-sm font-semibold text-gray-700 mt-2">AI Disease Predictor</p>
+                </div>
+                <div className="bg-white p-4 rounded-xl shadow-lg border border-gray-200 transform hover:-translate-y-1 transition-transform duration-300 cursor-pointer w-40 text-center">
+                  <span className="text-3xl">💓</span>
+                  <p className="text-sm font-semibold text-gray-700 mt-2">Heart Risk Checker</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
 
 
 
@@ -221,7 +232,7 @@ export default function HomePage() {
               { icon: '🧠', title: 'Mental Health Support', desc: 'Connect with licensed therapists for confidential sessions.' },
               { icon: '🥗', title: 'Nutritional Counseling', desc: 'Personalized diet plans from certified nutritionists.' },
               { icon: '🏃‍♂️', title: 'Fitness Coaching', desc: 'Achieve your fitness goals with expert guidance.' },
-              { icon: '👩‍🔬', title: 'Lab Test Bookings', desc: 'Schedule lab tests and view results directly on the app.' },
+              { icon: '👩‍🔬', title: 'AI Disease Analysis', desc: 'Receive expert doctor suggestions from your reports' },
               { icon: '👶', title: 'Pediatric Care', desc: 'Access specialized care for your children\'s health needs.' },
             ].map((service, index) => (
               <div

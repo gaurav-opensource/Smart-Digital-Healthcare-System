@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 const Doctor = require('../models/doctor.model');
 
-
+//doctor Schema
 const doctorRegisterSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().email().required(),
@@ -19,13 +19,12 @@ const doctorRegisterSchema = Joi.object({
   certification: Joi.string().uri().required(),    
 });
 
-
 const loginSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
 
-
+// Handle doctor register functionality
 exports.registerDoctor = async (req, res) => {
   try {
     // 1. Validate request body
@@ -77,8 +76,7 @@ exports.registerDoctor = async (req, res) => {
   }
 };
 
-
-// Doctor login
+// Handle doctor login functionality
 exports.loginDoctor = async (req, res) => {
   try {
     const { error } = loginSchema.validate(req.body);
@@ -141,7 +139,7 @@ exports.doctorProfile = (req, res) => {
   });
 };
 
-
+//Get  all un verified doctor
 exports.getUnverifiedDoctors = async (req, res) => {
   try {
     const doctors = await Doctor.find({ isVerified: false }).select('-password');
@@ -152,9 +150,29 @@ exports.getUnverifiedDoctors = async (req, res) => {
   }
 };
 
+//Get doctor basis of id
 
+exports.GetdoctorProfile = async (req, res) => {
+  try {
+    const doctorId = req.params.id;
 
+    // Fetch doctor info
+    const doctor = await Doctor.findById(doctorId)
+      .select("-password");     // remove password
 
+    if (!doctor) {
+      return res.status(404).json({ message: "Doctor not found" });
+    }
+
+    return res.json(doctor);
+
+  } catch (error) {
+    console.error("Error fetching doctor profile:", error);
+    return res.status(500).json({ message: "Server error" });
+  }
+};
+
+//Update doctor profile
 exports.updateDoctorProfile = async (req, res) => {
   try {
     
@@ -209,7 +227,7 @@ exports.updateDoctorProfile = async (req, res) => {
   }
 };
 
-
+// Filter doctors based on maxFees and location
 exports.getDoctors = async (req, res) => {
   try {
     const { location, specialization, minFees, maxFees } = req.query;

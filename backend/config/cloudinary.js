@@ -2,20 +2,26 @@ const cloudinary = require("cloudinary").v2;
 const { CloudinaryStorage } = require("multer-storage-cloudinary");
 const multer = require("multer");
 
+
+
 cloudinary.config({
-  cloud_name: "dznnyaj0z",
-  api_key: "784338889414318",
-  api_secret: "rc36OPAira2qTQNfRtyovWE8hB8",
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
+
+
+// Cloudinary storage
 const storage = new CloudinaryStorage({
   cloudinary,
   params: {
-    folder: "Healthcare",
+    folder: process.env.CLOUDINARY_FOLDER || "Healthcare",
     resource_type: "auto",
     allowed_formats: ["jpg", "png", "jpeg", "pdf"],
   },
 });
+
 
 const upload = multer({ storage });
 

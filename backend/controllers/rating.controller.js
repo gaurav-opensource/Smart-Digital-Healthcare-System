@@ -1,6 +1,7 @@
 const Rating = require('../models/rating.model');
 const Appointment = require('../models/appointment.model');
 
+//Create Rating for a Completed Appointment (User → Doctor)
 exports.createRating = async (req, res) => {
   try {
     const { appointmentId, rating, comment } = req.body;
@@ -37,9 +38,7 @@ exports.createRating = async (req, res) => {
   }
 };
 
-
-
-
+//Get All Ratings for a Specific Doctor
 exports.getDoctorRatings = async (req, res) => {
   try {
     const { doctorId } = req.params;

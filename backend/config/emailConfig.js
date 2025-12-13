@@ -1,8 +1,9 @@
-import nodemailer from "nodemailer";
-import dotenv from "dotenv";
+const nodemailer = require("nodemailer");
+const dotenv = require("dotenv");
 dotenv.config();
 
-export const transporter = nodemailer.createTransport({
+// Create email transporter
+const transporter = nodemailer.createTransport({
   service: "Gmail",
   auth: {
     user: process.env.EMAIL_USER,
@@ -10,7 +11,8 @@ export const transporter = nodemailer.createTransport({
   },
 });
 
-export const sendEmail = async ({ to, subject, text, html }) => {
+// Send email function
+const sendEmail = async ({ to, subject, text, html }) => {
   try {
     const info = await transporter.sendMail({
       from: `"HealthMate AI" <${process.env.EMAIL_USER}>`,
@@ -19,6 +21,7 @@ export const sendEmail = async ({ to, subject, text, html }) => {
       text,
       html,
     });
+
     console.log("Email sent:", info.messageId);
     return true;
   } catch (err) {
@@ -26,3 +29,6 @@ export const sendEmail = async ({ to, subject, text, html }) => {
     return false;
   }
 };
+
+// Exporting modules
+module.exports = { transporter, sendEmail };
