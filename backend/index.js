@@ -1,6 +1,6 @@
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios");   // ✅ IMPORTANT FIX
+const axios = require("axios");
 
 require('dotenv').config();
 const logger = require('./utils/logger'); 
@@ -42,46 +42,39 @@ app.use((req, res, next) => {
   next();
 });
 
-// ---------------- HEART PREDICT ROUTE ----------------
-app.post('/api/users/p', async (req, res) => {
-  try {
-    const userData = req.body;
 
-    const response = await axios.post(
-      "http://localhost:8000/predict-heart",
-      userData
-    );
-
-    return res.json({
-      success: true,
-      result: response.data.prediction
-    });
-
-  } catch (error) {
-    console.error("Prediction error:", error);
-    return res.status(500).json({ success: false, message: "Error predicting" });
-  }
-});
-
-
-app.post('/api/report/analyze', async (req, res) => {
+// Report Analysis Endpoint
+app.post("/api/report/analyze", async (req, res) => {
   try {
     const { fileUrl } = req.body;
+
+    console.log("📥 File URL received:", fileUrl);
 
     const response = await axios.post(
       "http://localhost:8000/analyze",
       { fileUrl }
     );
 
+    console.log("✅ Report analysis successful:", response.data);
     return res.json({
       success: true,
-      extracted_values: response.data.extracted_values,
-      raw_text: response.data.raw_text
+      risk_level: response.data.risk_level,
+      abnormal_parameters: response.data.abnormal_parameters,
+      report_analysis: response.data.report_analysis,
+      specialist_suggestion: response.data.specialist_suggestion,
+      doctor_suggestion: response.data.doctor_suggestion
     });
-    console.log(response.data.extracted_values);
 
   } catch (error) {
-    console.error("Report analyzer error:", error);
+    console.error("❌ Report analyzer error:");
+
+    if (error.response) {
+      console.error("Status:", error.response.status);
+      console.error("Data:", error.response.data);
+    } else {
+      console.error("Message:", error.message);
+    }
+
     return res.status(500).json({
       success: false,
       message: "Error analyzing report"
@@ -95,7 +88,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong' });
 });
 
+
 const PORT = process.env.PORT || 8000;
+
+
 app.listen(PORT, () => {
   logger.info(`Server running at http://localhost:${PORT}`);
 });

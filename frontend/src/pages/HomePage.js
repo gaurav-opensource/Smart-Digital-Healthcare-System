@@ -7,8 +7,6 @@ export default function HomePage() {
   const boxesRef = useRef([]);
   const [visibleCards, setVisibleCards] = useState([]);
 
-
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -38,13 +36,9 @@ export default function HomePage() {
     ['3', 'Manage', 'Receive prescriptions, reports, and health advice directly on your dashboard.'],
   ];
 
-
-
-
-
+  // Main Return
   return (
     <div className="min-h-screen bg-gray-100 font-sans">
-
 
       {/* Header */}
       <header className="py-4 px-4 md:px-8 flex items-center justify-between sticky top-0 bg-white z-10 shadow-sm">
@@ -104,6 +98,12 @@ export default function HomePage() {
                 >
                   👨‍⚕️ Join as Doctor
                 </Link>
+                 <Link
+                  to="/signup"
+                  className="bg-white text-black font-semibold px-8 py-3 rounded-full border border-gray-300 shadow-md hover:bg-gray-50 transition-colors inline-block text-center"
+                >
+                  📊 Get suggestions and doctor  Basis of Reports
+                </Link>
               </div>
             </div>
 
@@ -144,10 +144,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
-
-
       {/* About Us Section */}
       <section id="about-us" className="py-24 bg-white">
         <div className="container mx-auto px-4 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-12">
@@ -184,9 +180,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
-
       {/* How It Works Section */}
       <section id="how-it-works" className="py-24 bg-gradient-to-br from-blue-50 to-indigo-100">
         <div className="container mx-auto px-4 md:px-12 text-center">
@@ -212,9 +205,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-
-
 
 
       {/* Our Services Section */}
@@ -351,11 +341,6 @@ export default function HomePage() {
         </div>
       </section>
 
-
-
-
-
-      
 
       {/* Footer */}
       <footer className="bg-gray-800 text-white py-12 px-4 md:px-12">

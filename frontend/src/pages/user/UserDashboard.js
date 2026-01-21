@@ -124,7 +124,7 @@ const UserDashboardPage = () => {
                     )}
                   </div>
 
-                  {appointment.roomId && (
+                  {  (
                     <div className="mt-6 text-center">
                       <button
                         onClick={() => handleJoinCall(appointment)}
@@ -137,7 +137,7 @@ const UserDashboardPage = () => {
                       >
                         🎥 Join Video Call
                       </button>
-                      {!canJoin && (
+                      { (
                         <p className="text-sm text-gray-500 mt-2">
                           Video call can be joined 10 minutes before the scheduled time.
                         </p>

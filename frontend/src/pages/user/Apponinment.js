@@ -48,7 +48,7 @@ const AppointmentForm = () => {
       // This is real money flow → Commented for safety.
       // navigate("/user/payment", { state: appointmentData });
 
-      navigate("/user/appointments");
+      navigate("/user/payment");
     } catch (error) {
       console.error("❌ Error creating appointment:", error);
       alert(error.response?.data?.message || "Failed to create appointment.");

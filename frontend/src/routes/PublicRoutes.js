@@ -7,6 +7,7 @@ import NotFound from "../pages/NotFoundPage";
 import DiseasePredictPage from "../pages/DiseasePredictPage";
 import VideoMeetComponent from "../socket/VidoesCall";
 
+
 const PublicRoutes = (
   <>
     <Route path="/" element={<HomePage />} />
@@ -15,6 +16,7 @@ const PublicRoutes = (
     <Route path="/predict" element={<DiseasePredictPage />} />
     <Route path="/video-call/:appointmentId" element={<VideoMeetComponent />} />
     <Route path="*" element={<NotFound />} />
+    <Route path="/predict" element={<DiseasePredictPage/>} />
   </>
 );
 
