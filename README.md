@@ -1,28 +1,30 @@
+# 🏥 Smart Digital Healthcare System
 
-# 🏥 Smart Healthcare System (Full Stack + AI Powered)
+**(Full Stack Telemedicine Platform + AI Medical Report Analyzer)**
 
-I developed a full-stack AI-enabled healthcare platform that provides smart doctor-patient interaction. Users can search doctors, book appointments, make secure payments, upload medical reports, and attend video consultations.
-The system includes **role-based dashboards**, **AI-based disease prediction**, **real-time chat**, and **secure cloud storage**.
+Smart Digital Healthcare System is a **full-stack healthcare platform** designed to enable seamless doctor–patient interaction through digital consultations, secure data handling, and intelligent medical report analysis.
+
+The platform supports **role-based dashboards**, **real-time video consultations**, **secure medical report uploads**, **AI-powered report analysis using FastAPI**, and **cloud-based storage**, delivering a complete and modern telehealth solution.
 
 ---
 
 ## 📌 Table of Contents
 
 * [About the Project](#about-the-project)
-* [Features](#features)
+* [Key Features](#key-features)
 * [Technology Stack](#technology-stack)
 * [Getting Started](#getting-started)
 
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
-* [Project Flow](#project-flow)
+* [Project Workflow](#project-workflow)
 
   * [Patient Flow](#patient-flow)
   * [Doctor Flow](#doctor-flow)
   * [Admin Flow](#admin-flow)
-* [AI Features](#ai-features)
+* [AI Medical Report Analyzer](#ai-medical-report-analyzer)
 * [Demo Videos & Screenshots](#demo-videos--screenshots)
-* [Future Improvements](#future-improvements)
+* [Future Enhancements](#future-enhancements)
 * [License](#license)
 * [Contact](#contact)
 
@@ -30,95 +32,170 @@ The system includes **role-based dashboards**, **AI-based disease prediction**, 
 
 ## 📖 About the Project
 
-This is a complete **online healthcare system** designed to connect patients and doctors through a secure, intuitive digital platform.
-It features:
+**Smart Digital Healthcare System** is an end-to-end **online healthcare management platform** that connects patients, doctors, and administrators on a single secure system.
 
-* Smart doctor search
-* End-to-end appointment flow
-* Video consultations
-* Secure file-sharing
-* AI-based disease prediction
-* Real-time chat and notifications
+It provides:
 
-The goal is to provide a modern and reliable telehealth experience.
+* Smart doctor discovery
+* Appointment scheduling
+* Real-time video consultations
+* Secure medical report handling
+* AI-powered medical report interpretation
+
+The project focuses on **scalability, security, and real-world healthcare workflows**.
 
 ---
 
-## ⭐ Features
+## ⭐ Key Features
 
-### 🔐 User Roles
+### 🔐 Role-Based Access
 
-* **Patient Portal**
-* **Doctor Portal**
-* **Admin Portal**
+* **Patient Dashboard**
+* **Doctor Dashboard**
+* **Admin Dashboard**
 
-### 👨‍⚕️ Doctor Search
+---
 
-* Search by **specialization**, **location**, **consultation fees**, and **ratings**.
+### 🔎 Smart Doctor Search
 
-### 🧑‍💼 Profile Management
+* Filter doctors by:
 
-* Doctors can update qualification, experience, availability
-* Patients can maintain health profile & upload reports
+  * Specialization
+  * Location
+  * Consultation fees
+  * Ratings
 
-### 🔒 Secure Admin Panel
+---
 
-* Admin verifies doctor licenses & certificates
-* Approves or rejects doctor onboarding requests
+### 👤 Profile Management
 
-### 📅 Appointment Booking
+* Doctors manage:
 
-* Patients book slots with date, time & symptoms
-* Doctors manage pending, upcoming & completed appointments
+  * Qualifications
+  * Experience
+  * Availability
+* Patients manage:
 
-### 📞 Video Consultation (WebRTC + Socket.IO)
+  * Personal health profile
+  * Medical reports
 
-* Real-time video calling between doctor & patient
-* Includes in-call chat and notifications
+---
 
-### 📤 Secure Medical File Uploads
+### 🛡️ Secure Admin Panel
 
-* Reports & images uploaded to **Cloudinary**
+* Doctor document verification
+* Approval/rejection of doctor onboarding
+* Platform monitoring
 
-### 💊 Prescription Management
+---
 
-* Doctors send digital prescriptions after consultation
+### 📅 Appointment Booking System
 
-### ⭐ Rating System
+* Date & time-based appointment scheduling
+* Appointment status tracking:
 
-* Patients rate & review doctors
+  * Pending
+  * Upcoming
+  * Completed
+
+---
+
+### 🎥 Video Consultation (WebRTC + Socket.IO)
+
+* One-to-one real-time video calls
+* In-call chat
+* Live notifications
+
+---
+
+### 📤 Secure Medical File Upload
+
+* Upload reports (PDF / JPG / PNG)
+* Stored securely using **Cloudinary**
+
+---
+
+### 💊 Digital Prescription Management
+
+* Doctors generate prescriptions post consultation
+* Patients can view and download prescriptions
+
+---
+
+### ⭐ Doctor Rating & Feedback
+
+* Patients rate doctors after appointments
+* Improves trust and transparency
+
+---
 
 ### 💰 Payment Integration
 
-* Basic model ready
-* Razorpay integration planned
-
-### 🔔 Notifications
-
-* Email & SMS notifications for appointment updates
+* Appointment payment workflow implemented
+* Razorpay integration planned for production
 
 ---
 
-## 🤖 AI Features
+### 🔔 Notifications
 
-### 🔹 **AI Heart Disease Prediction Model**
+* Email alerts for:
 
-* Uses patient input fields to predict heart disease
-* **Accuracy: 81.1%**
-* Outputs risk percentage and recommendation message
+  * Appointment updates
+  * Doctor approval status
 
-### 🔹 **AI Medical Report Analyzer**
+---
 
-* Upload medical reports (PDF/JPG/PNG)
-* Automatically extracts:
+## 🤖 AI Medical Report Analyzer
 
-  * Hemoglobin
-  * RBC/WBC
-  * Creatinine
-  * Cholesterol Levels
-  * Sugar Levels
-  * Blood Pressure
-* Provides AI-generated health summary and suggestions
+A **standalone AI microservice** built using **FastAPI** to analyze uploaded medical reports.
+
+### 🔍 What It Does
+
+* Accepts **PDF / image medical reports**
+* Extracts text using:
+
+  * `PyPDF2` (PDF)
+  * `Tesseract OCR` (Images)
+* Identifies medical parameters using **regex-based extraction**
+* Compares values with standard medical ranges
+* Flags:
+
+  * Normal
+  * Abnormal
+  * Missing parameters
+
+---
+
+### 🧠 Parameters Analyzed
+
+* Hemoglobin
+* RBC / WBC / Platelets
+* Cholesterol (HDL, LDL, Total)
+* Triglycerides
+* Blood Glucose (Fasting & PP)
+* Creatinine
+* Urea
+* Vitamin D & B12
+* Hematocrit, MCV, MCH, MCHC
+
+---
+
+### 📊 AI Output
+
+* Overall **risk level** (Low / Medium / High)
+* Count of abnormal parameters
+* Parameter-wise analysis
+* **Specialist recommendations** (Cardiologist, Nephrologist, Endocrinologist, etc.)
+* AI-generated medical summary
+
+---
+
+### 🧩 Architecture
+
+* Backend (Node.js) uploads report to Cloudinary
+* FastAPI service fetches file URL
+* AI engine processes & returns structured insights
+* Results shown in patient dashboard
 
 ---
 
@@ -135,37 +212,48 @@ The goal is to provide a modern and reliable telehealth experience.
 * Express.js
 * MongoDB + Mongoose
 
-### **Key Tools/Libraries**
+### **AI & Microservices**
 
-* Cloudinary (file storage)
-* Socket.io (chat & signaling)
-* WebRTC (video call)
-* JWT (authentication)
-* Bcrypt (password security)
+* FastAPI (Python)
+* PyPDF2
+* Tesseract OCR
+* Regex-based NLP processing
+
+### **Other Tools**
+
+* WebRTC (Video Calling)
+* Socket.IO (Chat & Signaling)
+* Cloudinary (File Storage)
+* JWT (Authentication)
+* Bcrypt (Password Hashing)
+* Docker & Render (Deployment)
 
 ---
 
-# 🚀 Getting Started
+## 🚀 Getting Started
 
-## Prerequisites
+### Prerequisites
 
-* Node.js v14+
+* Node.js (v14+)
 * MongoDB
+* Python 3.9+
 * Cloudinary account
 * Git
 
 ---
 
-## Installation
+### Installation
 
-### 1️⃣ Clone Repository
+#### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/gaurav-opensource/online-healthcare-system.git
-cd online-healthcare-system
+git clone https://github.com/gaurav-opensource/Smart-Digital-Healthcare-System.git
+cd Smart-Digital-Healthcare-System
 ```
 
-### 2️⃣ Setup Backend
+---
+
+#### 2️⃣ Backend Setup
 
 ```bash
 cd backend
@@ -175,9 +263,9 @@ npm install
 Create `.env`:
 
 ```
-MONGO_URI=mongodb://127.0.0.1:27017/online-healthcare
+MONGO_URI=mongodb://127.0.0.1:27017/healthcare
 PORT=5000
-JWT_SECRET=your_super_secret_key
+JWT_SECRET=your_secret_key
 
 CLOUDINARY_CLOUD_NAME=xxxx
 CLOUDINARY_API_KEY=xxxx
@@ -190,90 +278,93 @@ Start backend:
 npm start
 ```
 
-### 3️⃣ Setup Frontend
+---
+
+#### 3️⃣ AI Service (FastAPI)
+
+```bash
+cd ai-service
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+---
+
+#### 4️⃣ Frontend Setup
 
 ```bash
 cd frontend
 npm install
-```
-
-Create `.env`:
-
-```
-REACT_APP_API_URL=http://localhost:5000/api
-```
-
-Start frontend:
-
-```bash
 npm start
 ```
 
 ---
 
-# 🔄 Project Flow
+## 🔄 Project Workflow
 
-## 👨‍⚕️ Patient Flow
+### 👨‍⚕️ Patient Flow
 
-* Register/login
-* Search doctors by filters
-* View doctor profile
+* Register/Login
+* Search doctors
 * Book appointment
-* Make payment
-* Join video consultation
-* Upload test reports
+* Upload medical reports
+* Attend video consultation
+* View AI report analysis
 * Receive prescription
-* Give rating & feedback
+* Submit rating
 
 ---
 
-## 🧑‍⚕️ Doctor Flow
+### 🧑‍⚕️ Doctor Flow
 
-* Register & upload certificates
-* Wait for admin approval
+* Register & upload documents
+* Admin approval
 * Manage appointments
-* Attend video consultations
-* Chat in real-time
-* Send prescriptions
+* Conduct consultations
+* Upload prescriptions
 
 ---
 
-## 🛡️ Admin Flow
+### 🛡️ Admin Flow
 
-* Verify doctor documents
+* Verify doctor credentials
 * Approve/reject doctors
-* Monitor platform activity
+* Monitor system usage
 
 ---
 
-# 🎥 Demo Videos & Screenshots
+## 🎥 Demo Videos & Screenshots
 
-> **Upload your workflow videos, UI demo videos, and screenshots here.**
-> (You can upload mp4/webm files on GitHub or add links to Google Drive / YouTube.)
+> Add demo videos, screenshots, or links here:
 
-Example:
-
-* **Doctor Verification Flow (Video)**
-* **Patient Appointment Booking (Screenshots)**
-* **AI Report Analyzer Demonstration (Video)**
-* **Video Call UI Demo (Screenshots)**
+* Doctor verification flow
+* Appointment booking UI
+* AI report analyzer demo
+* Video consultation interface
 
 ---
 
-# 🔮 Future Improvements
+## 🔮 Future Enhancements
 
-* Add AI-based symptom checker
-* Better dashboards with analytics
-* Full Razorpay payment integration
-* Improved search using NLP
-* Full ML pipeline for automated test recommendations
+* AI-based symptom checker
+* Advanced analytics dashboard
+* Full Razorpay integration
+* NLP-based doctor search
+* Multi-language support
 
 ---
 
-# 📬 Contact
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## 📬 Contact
 
 **Author:** Gaurav Yadav
-**Email:** [gauravyadavgh@example.com](mailto:gauravyadavgh@example.com)
-**LinkedIn:** [https://www.linkedin.com/in/gauravyadav95/](https://www.linkedin.com/in/gauravyadav95/)
-**GitHub:** [https://github.com/gaurav-opensource](https://github.com/gaurav-opensource)
+📧 Email: [gauravyadavgh@example.com](mailto:gauravyadavgh@example.com)
+🔗 LinkedIn: [https://www.linkedin.com/in/gauravyadav95/](https://www.linkedin.com/in/gauravyadav95/)
+💻 GitHub: [https://github.com/gaurav-opensource](https://github.com/gaurav-opensource)
+
 
