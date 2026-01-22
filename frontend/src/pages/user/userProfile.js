@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import BASE_URL from '../../apiConfig';
 
-const UserProfilePage = () => {
+const UserProfile = () => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -59,4 +59,4 @@ const UserProfilePage = () => {
   );
 };
 
-export default UserProfilePage;
+export default UserProfile;
