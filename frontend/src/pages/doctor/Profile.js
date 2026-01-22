@@ -4,7 +4,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import BASE_URL from '../../apiConfig'
 
-const DoctorProfilePage = () => {
+const DoctorProfile = () => {
   const [doctor, setDoctor] = useState(null);
   const [imageError, setImageError] = useState(false);
   const navigate = useNavigate();
@@ -171,4 +171,4 @@ const ActionButton = ({ text, onClick, color }) => (
   </button>
 );
 
-export default DoctorProfilePage;
+export default DoctorProfile;

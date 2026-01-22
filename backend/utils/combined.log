@@ -364,3 +364,7 @@
 {"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-21T07:02:34.244Z"}
 {"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-21T07:20:33.738Z"}
 {"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-21T07:23:06.342Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-22T05:51:02.431Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-22T05:51:04.469Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-22T05:59:06.589Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-22T05:59:07.506Z"}

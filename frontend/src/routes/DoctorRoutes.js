@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 
 import DoctorHome from "../pages/doctor/Home";
-import DoctorProfile from "../pages/doctor/DoctorProfile";
+import DoctorProfile from "../pages/doctor/Profile";
 import EditProfile from "../pages/doctor/EditProfile";
 import DoctorDashboardPage from "../pages/doctor/DoctorDashboard";
 import AddDoctorCard from "../pages/doctor/AddCard";

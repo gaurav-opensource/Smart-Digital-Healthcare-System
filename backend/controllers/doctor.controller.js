@@ -155,6 +155,7 @@ exports.getUnverifiedDoctors = async (req, res) => {
 exports.GetdoctorProfile = async (req, res) => {
   try {
     const doctorId = req.params.id;
+    console.log(doctorId);
 
     // Fetch doctor info
     const doctor = await Doctor.findById(doctorId)
