@@ -6,7 +6,7 @@ import DoctorListPage from "../pages/user/DoctorList";
 import AppointmentForm from "../pages/user/Apponinment";
 import PaymentPage from "../pages/user/PaymentPage";
 import UserDashboardPage from "../pages/user/UserDashboard";
-import DoctorProfile from "../pages/user/DoctorProfile";
+import DoctorProfile from "../pages/doctor/DoctorProfile";
 import RateDoctor from "../pages/user/DoctorRating";
 
 const UserRoutes = (
