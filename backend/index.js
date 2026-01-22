@@ -28,6 +28,8 @@ app.get('/', (req, res) => {
   res.send('Backend API is running');
 });
 
+const frontendUrl = "https://smart-digital-healthcare-system.onrender.com/";
+
 // Routes
 app.use('/api/admin', AdminRoute);
 app.use('/api/users', UserRoute);
