@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import BASE_URL from '../../apiConfig.js'
 
 
-const App = () => {
+const Home = () => {
   const navigate = useNavigate();
   const [doctor, setDoctor] = useState(null);
   const [appointments, setAppointments] = useState([]);
@@ -365,4 +365,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Home;

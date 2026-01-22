@@ -1,7 +1,7 @@
 import { Route } from "react-router-dom";
 
-import UserHome from "../pages/user/Home";
-import UserProfile from "../pages/user/UserProfile";
+import Home from "../pages/user/Home.js";
+import UserProfile from "../pages/user/UserProfile.js";
 import DoctorListPage from "../pages/user/DoctorList";
 import AppointmentForm from "../pages/user/Apponinment";
 import PaymentPage from "../pages/user/PaymentPage";
@@ -11,7 +11,7 @@ import RateDoctor from "../pages/user/DoctorRating";
 
 const UserRoutes = (
   <>
-    <Route path="/user/home" element={<UserHome />} />
+    <Route path="/user/home" element={<Home />} />
     <Route path="/user/profile" element={<UserProfile />} />
     <Route path="/doctorlist" element={<DoctorListPage />} />
     <Route path="/book-appointment/:doctorId" element={<AppointmentForm />} />
