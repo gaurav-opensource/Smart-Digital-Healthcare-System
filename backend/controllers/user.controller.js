@@ -1,9 +1,10 @@
 const User = require('../models/user.model');
+const Doctor = require('../models/doctor.model');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 
-//Schema
+// Validation Schema of register
 const registerSchema = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().email().required(),
@@ -12,10 +13,12 @@ const registerSchema = Joi.object({
     phoneNumber: Joi.string().pattern(/^\+?[1-9]\d{9,14}$/),
 });
 
+// Validation Schema of login
 const loginSchema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().required(),
 });
+
 
 // Handle user register functionality
 exports.register = async (req, res) => {
@@ -24,10 +27,12 @@ exports.register = async (req, res) => {
         if (error) return res.status(400).json({ message: error.details[0].message });
 
         const { name, email, password, location, phoneNumber } = req.body;
-
+        
+        // Check if user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) return res.status(400).json({ message: 'Email already exists' });
-
+        
+        // Hash password
         const hashedPassword = await bcrypt.hash(password, 12);
 
         const user = new User({
@@ -48,6 +53,7 @@ exports.register = async (req, res) => {
     }
 };
 
+
 // Handle login register functionality
 exports.login = async (req, res) => {
     try {
@@ -59,9 +65,11 @@ exports.login = async (req, res) => {
         const user = await User.findOne({ email });
         if (!user) return res.status(401).json({ message: 'Invalid credentials' });
 
+        // Compare password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) return res.status(401).json({ message: 'Invalid credentials' });
 
+        // Generate JWT token
         const token = jwt.sign(
             { userId: user._id, role: user.role },
             process.env.JWT_SECRET,
@@ -85,9 +93,11 @@ exports.login = async (req, res) => {
     }
 };
 
+
 //Get user profile
 exports.profile = (req, res) => {
     const user = req.user;
+    // Ensure the user is authenticated
     if (!user) return res.status(400).json({ message: 'User not found' });
 
     const userProfile = {
@@ -103,6 +113,7 @@ exports.profile = (req, res) => {
     res.status(200).json(userProfile);
 };
 
+
 //Update profile
 exports.updateProfile = async (req, res) => {
     try {
@@ -110,16 +121,19 @@ exports.updateProfile = async (req, res) => {
         const { name, email, password, location, phoneNumber } = req.body;
 
         const updateFields = {};
+        // Only add fields that are provided
         if (name) updateFields.name = name;
         if (email) updateFields.email = email;
         if (location) updateFields.location = location;
         if (phoneNumber) updateFields.phoneNumber = phoneNumber;
-
+        
+        // If password is provided, hash it before updating
         if (password) {
             const hashedPassword = await bcrypt.hash(password, 12);
             updateFields.password = hashedPassword;
         }
 
+        // Update user in the database
         const updatedUser = await User.findByIdAndUpdate(
             userId,
             { $set: updateFields },
@@ -143,4 +157,31 @@ exports.updateProfile = async (req, res) => {
         console.error('Profile update error:', error);
         res.status(500).json({ message: 'Server error', error: error.message });
     }
+};
+
+
+exports.searchDoctors = async (req, res) => {
+  console.log("Searching doctors with filters:", req.query);
+  const { specialization, location, maxFees, minRating, sort } = req.query;
+
+  let filter = { isVerified: true };
+
+  if (specialization) filter.specialization = specialization;
+  if (location) filter.location = location;
+  if (maxFees) filter.fees = { $lte: Number(maxFees) };
+  if (minRating) filter.rating = { $gte: Number(minRating) };
+
+  let query = Doctor.find(filter);
+
+  // 🔥 SMART SORTING
+  if (sort === "best") {
+    query = query.sort({
+      rating: -1,   // highest rating first
+      fees: 1,      // lower fees better
+      experience: -1
+    });
+  }
+
+  const doctors = await query.limit(20);
+  res.json(doctors);
 };

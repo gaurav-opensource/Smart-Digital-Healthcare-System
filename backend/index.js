@@ -7,13 +7,15 @@ const logger = require('./utils/logger');
 
 // Routes
 const AdminRoute = require('./routes/admin.routes');
-const UserRoute = require('./routes/users.routes');
-const DoctorRoute = require('./routes/doctors.routes');
-const AppoinmentRoute = require('./routes/appointment.route');
+const UserRoute = require('./routes/user.routes');
+const DoctorRoute = require('./routes/doctor.routes');
+const AppoinmentRoute = require('./routes/appointment.routes');
 const PaymentRoute = require('./routes/payments.routes');
 const RatingRoute = require('./routes/ratings.routes');
 const emailRoute= require('./routes/email.routes');
 const connectDB = require('./config/db');
+const PredictRoute = require('./routes/predict.route');
+
 
 const app = express();
 app.use(cors());
@@ -38,6 +40,7 @@ app.use('/api/appointments', AppoinmentRoute);
 app.use('/api/paypal', PaymentRoute);
 app.use('/api/ratings', RatingRoute);
 app.use('/api/send', emailRoute);
+app.use('/api/report', PredictRoute);
 
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.url}`);
@@ -45,44 +48,7 @@ app.use((req, res, next) => {
 });
 
 
-// Report Analysis Endpoint
-app.post("/api/report/analyze", async (req, res) => {
-  try {
-    const { fileUrl } = req.body;
 
-    console.log("📥 File URL received:", fileUrl);
-
-    const response = await axios.post(
-      "http://localhost:8000/analyze",
-      { fileUrl }
-    );
-
-    console.log("✅ Report analysis successful:", response.data);
-    return res.json({
-      success: true,
-      risk_level: response.data.risk_level,
-      abnormal_parameters: response.data.abnormal_parameters,
-      report_analysis: response.data.report_analysis,
-      specialist_suggestion: response.data.specialist_suggestion,
-      doctor_suggestion: response.data.doctor_suggestion
-    });
-
-  } catch (error) {
-    console.error("❌ Report analyzer error:");
-
-    if (error.response) {
-      console.error("Status:", error.response.status);
-      console.error("Data:", error.response.data);
-    } else {
-      console.error("Message:", error.message);
-    }
-
-    return res.status(500).json({
-      success: false,
-      message: "Error analyzing report"
-    });
-  }
-});
 
 
 app.use((err, req, res, next) => {

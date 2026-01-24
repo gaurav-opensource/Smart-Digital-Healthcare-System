@@ -19,12 +19,16 @@ const doctorRegisterSchema = Joi.object({
   certification: Joi.string().uri().required(),    
 });
 
+
+//doctor login schema
 const loginSchema = Joi.object({
   email: Joi.string().email().required(),
   password: Joi.string().required(),
 });
 
-// Handle doctor register functionality
+
+
+//register doctor
 exports.registerDoctor = async (req, res) => {
   try {
     // 1. Validate request body
@@ -76,7 +80,8 @@ exports.registerDoctor = async (req, res) => {
   }
 };
 
-// Handle doctor login functionality
+
+//doctor login
 exports.loginDoctor = async (req, res) => {
   try {
     const { error } = loginSchema.validate(req.body);
@@ -112,9 +117,13 @@ exports.loginDoctor = async (req, res) => {
   }
 };
 
+
+
 // Doctor profile
 exports.doctorProfile = (req, res) => {
   const user = req.user;
+
+  // Ensure the user is a doctor
   if (!user || user.role !== 'doctor') {
     return res.status(403).json({ message: 'Access denied: not a doctor' });
   }
@@ -139,6 +148,7 @@ exports.doctorProfile = (req, res) => {
   });
 };
 
+
 //Get  all un verified doctor
 exports.getUnverifiedDoctors = async (req, res) => {
   try {
@@ -151,15 +161,13 @@ exports.getUnverifiedDoctors = async (req, res) => {
 };
 
 //Get doctor basis of id
-
 exports.GetdoctorProfile = async (req, res) => {
   try {
     const doctorId = req.params.id;
-    console.log(doctorId);
 
     // Fetch doctor info
     const doctor = await Doctor.findById(doctorId)
-      .select("-password");     // remove password
+      .select("-password");     
 
     if (!doctor) {
       return res.status(404).json({ message: "Doctor not found" });
@@ -172,6 +180,7 @@ exports.GetdoctorProfile = async (req, res) => {
     return res.status(500).json({ message: "Server error" });
   }
 };
+
 
 //Update doctor profile
 exports.updateDoctorProfile = async (req, res) => {
@@ -227,6 +236,7 @@ exports.updateDoctorProfile = async (req, res) => {
     res.status(500).json({ message: 'Failed to update profile', error: err.message });
   }
 };
+
 
 // Filter doctors based on maxFees and location
 exports.getDoctors = async (req, res) => {

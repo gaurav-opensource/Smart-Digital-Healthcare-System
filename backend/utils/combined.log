@@ -370,3 +370,41 @@
 {"level":"info","message":"Database connected successfully","timestamp":"2026-01-22T05:59:07.506Z"}
 {"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-22T06:12:01.726Z"}
 {"level":"info","message":"Database connected successfully","timestamp":"2026-01-22T06:12:02.810Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-23T03:49:56.121Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-23T03:49:57.211Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-23T03:51:45.861Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-23T03:51:46.988Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-23T03:52:21.186Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-23T16:31:03.987Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-23T16:31:05.033Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-23T17:14:48.599Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-23T17:14:49.728Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:05:16.856Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:05:17.876Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:13:25.171Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:13:26.378Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-24T07:18:59.008Z"}
+{"level":"error","message":"Doctor is not defined","timestamp":"2026-01-24T07:20:41.313Z"}
+{"level":"error","message":"Doctor is not defined","timestamp":"2026-01-24T07:20:41.441Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:31:58.222Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:31:59.411Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-24T07:32:57.552Z"}
+{"level":"error","message":"Doctor is not defined","timestamp":"2026-01-24T07:33:05.849Z"}
+{"level":"error","message":"Doctor is not defined","timestamp":"2026-01-24T07:33:05.864Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:34:18.052Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:34:19.103Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-24T07:34:48.702Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-24T07:38:31.254Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:39:24.488Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:39:25.454Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:45:48.654Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:45:49.699Z"}
+{"level":"info","message":"POST /api/report/analyze","timestamp":"2026-01-24T07:46:36.861Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:47:16.183Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:47:17.315Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:48:35.278Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:48:36.452Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:50:34.885Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:50:36.006Z"}
+{"level":"info","message":"Server running at http://localhost:5000","timestamp":"2026-01-24T07:56:05.401Z"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-01-24T07:56:06.802Z"}

@@ -1,7 +1,9 @@
 const Rating = require('../models/rating.model');
 const Appointment = require('../models/appointment.model');
 
-//Create Rating for a Completed Appointment (User → Doctor)
+
+
+//Create Rating for a Completed Appointment 
 exports.createRating = async (req, res) => {
   try {
     const { appointmentId, rating, comment } = req.body;
@@ -37,6 +39,7 @@ exports.createRating = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
 
 //Get All Ratings for a Specific Doctor
 exports.getDoctorRatings = async (req, res) => {

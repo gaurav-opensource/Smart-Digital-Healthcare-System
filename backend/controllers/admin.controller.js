@@ -6,24 +6,31 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 
-// Validation Schema
+// Validation Schema of register
 const registerSchema = Joi.object({
     name: Joi.string().required(),
     email: Joi.string().email().required(),
     password: Joi.string().required(),
 });
 
+
+// Validation Schema of login
 const loginSchema = Joi.object({
     email: Joi.string().email().required(),
     password: Joi.string().required(),
 });
 
-// ---------------------------------------------
+
+
 // Admin Register
-// ---------------------------------------------
 exports.register = async (req, res) => {
     try {
         const { error } = registerSchema.validate(req.body);
+
+        if (true) {
+            return res.status(400).json({ message: "Registration is disabled" });
+        }
+
         if (error)
             return res.status(400).json({ message: error.details[0].message });
 
@@ -52,25 +59,35 @@ exports.register = async (req, res) => {
     }
 };
 
-// ---------------------------------------------
+
+
 // Admin Login
-// ---------------------------------------------
 exports.login = async (req, res) => {
     try {
+        // Validate input
         const { error } = loginSchema.validate(req.body);
+
+        //if data is not valid
         if (error)
             return res.status(400).json({ message: error.details[0].message });
 
         const { email, password } = req.body;
-
+        
+        // Check if admin exists
         const admin = await Admin.findOne({ email });
+
+        //if admin not exists
         if (!admin)
             return res.status(401).json({ message: 'Email is wrong' });
-
+        
+        // Check password
         const isMatch = await bcrypt.compare(password, admin.password);
+
+        //if password is incorrect
         if (!isMatch)
             return res.status(401).json({ message: 'Password is wrong' });
-
+        
+        // Create JWT token
         const token = jwt.sign(
             { userId: admin._id, role: admin.role },
             process.env.JWT_SECRET || "default_secret",
@@ -81,8 +98,6 @@ exports.login = async (req, res) => {
             token,
             admin: {
                 id: admin._id,
-                name: admin.name,
-                email: admin.email,
                 role: admin.role
             }
         });
@@ -93,13 +108,15 @@ exports.login = async (req, res) => {
     }
 };
 
-// ---------------------------------------------
+
+
 // Get Admin Profile
-// ---------------------------------------------
 exports.profile = (req, res) => {
+    //if user not found
     if (!req.user)
         return res.status(400).json({ message: 'Admin not found' });
-
+    
+    //send user data
     res.status(200).json({
         id: req.user._id,
         name: req.user.name,
@@ -108,14 +125,18 @@ exports.profile = (req, res) => {
     });
 };
 
-// ---------------------------------------------
+
 // Get All Unverified Doctors
-// ---------------------------------------------
 exports.getUnverifiedDoctors = async (req, res) => {
     try {
+        if (req.user.role !== "admin")
+            return res.status(403).json({ message: "Access denied" });
+
+        // Fetch unverified doctors
         const doctors = await Doctor.find({ isVerified: false })
             .select('-password');
-
+        
+        // Respond with the list of unverified doctors
         res.status(200).json({
             success: true,
             count: doctors.length,
@@ -128,25 +149,30 @@ exports.getUnverifiedDoctors = async (req, res) => {
     }
 };
 
-// ---------------------------------------------
+
 // Verify Doctor
-// ---------------------------------------------
 exports.verifyDoctor = async (req, res) => {
     try {
+        // Check admin role
         if (req.user.role !== "admin")
             return res.status(403).json({ message: "Access denied" });
-
+        
+        // Get doctor ID from params
         const doctorId = req.params.id;
-
+        
+        // Update doctor's verification status
         const doctor = await Doctor.findByIdAndUpdate(
             doctorId,
             { isVerified: true },
             { new: true }
         );
-
+        
+        //if doctor not found
         if (!doctor)
             return res.status(404).json({ message: 'Doctor not found' });
+        
 
+        // Respond with success message
         res.status(200).json({ message: 'Doctor verified successfully', doctor });
 
     } catch (error) {
@@ -155,11 +181,15 @@ exports.verifyDoctor = async (req, res) => {
     }
 };
 
-// ---------------------------------------------
+
 // Admin Stats
-// ---------------------------------------------
 exports.getAdminStats = async (req, res) => {
     try {
+        // Check admin role
+        if (req.user.role !== "admin")
+            return res.status(403).json({ message: "Access denied" });
+
+        // Fetch stats
         const totalUsers = await User.countDocuments();
         const totalDoctors = await Doctor.countDocuments();
         const pendingVerifications = await Doctor.countDocuments({ isVerified: false });

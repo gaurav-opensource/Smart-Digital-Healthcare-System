@@ -15,6 +15,9 @@ router.post('/login', authController.login);
 // Get user profile (only logged-in users with "user" role)
 router.get('/profile', auth, restrictTo('user'), authController.profile);
 
+// Search doctors
+router.get('/search-doctors', authController.searchDoctors);
+
 
 
 module.exports = router;

@@ -3,22 +3,16 @@ const Doctor = require('../models/doctor.model');
 const User = require('../models/user.model');
 const sendVideoCallReminder = require('../utils/emailService');
 
+
 //Create new appointment
 exports.createAppointment = async (req, res) => {
   try {
     const { userId, doctorId, appointmentDate, description } = req.body;
 
-    // Amount removed from required fields because payment is disabled
+    // Validate input
     if (!userId || !doctorId || !appointmentDate || !description) {
       return res.status(400).json({ message: "Missing required fields" });
     }
-
-    // const appointmentDateTime = new Date(appointmentDate);
-    // const now = new Date();
-
-    // if (appointmentDateTime < now) {
-    //   return res.status(400).json({ message: "Cannot create appointment in the past" });
-    // }
 
     // Split date and time
     const [date, time] = appointmentDate.split("T");
@@ -29,7 +23,8 @@ exports.createAppointment = async (req, res) => {
       date,
       time,
     });
-
+    
+    // If exists, return error
     if (existingAppointment) {
       return res.status(400).json({
         message: "Doctor already has an appointment at this time",
@@ -37,10 +32,12 @@ exports.createAppointment = async (req, res) => {
     }
 
     const doctor = await Doctor.findById(doctorId);
+
+    // If doctor not found
     if (!doctor)
       return res.status(404).json({ message: "Doctor not found" });
 
-    // CREATE APPOINTMENT
+    // Create and save appointment
     const appointment = new Appointment({
       user: userId,
       doctor: doctorId,
@@ -53,15 +50,16 @@ exports.createAppointment = async (req, res) => {
 
     const user = await User.findById(userId);
 
-    // SENDING EMAIL (ASYNC, NOT BLOCKING)
+    // Send reminder emails
     sendVideoCallReminder({ user, doctor, appointment }).catch((err) => {
       console.error("Error sending video call reminder:", err);
     });
 
     res.status(201).json({
-      message: "Appointment created successfully. Reminder emails sent.",
+      message: "Appointment created successfully. For video call details, check your email.",
       appointment,
     });
+
   } catch (error) {
     console.error("Appointment creation error:", error);
     res.status(500).json({
@@ -75,12 +73,14 @@ exports.createAppointment = async (req, res) => {
 exports.getAppointmentsByUser = async (req, res) => {
  try {
     const { userId } = req.params;
-    console.log(userId)
 
+
+    // Fetch appointments for the user
     const appointments = await Appointment.find({ user: userId })
       .populate('doctor', 'name specialization location') // get doctor details
       .sort({ date: 1 });
-    console.log(appointments)
+    
+
     res.status(200).json(appointments);
   } catch (error) {
     res.status(500).json({ message: 'Failed to fetch appointments', error });
@@ -90,6 +90,7 @@ exports.getAppointmentsByUser = async (req, res) => {
 //Get Appointment for Doctor
 exports.getAppointmentsByDoctor = async (req, res) => {
   try {
+    //get doctor id from params
     const { doctorId } = req.params;
     const { completed } = req.query; 
 
@@ -99,7 +100,8 @@ exports.getAppointmentsByDoctor = async (req, res) => {
     // Optional filtering
     if (completed === 'true') query.isCompleted = true;
     else if (completed === 'false') query.isCompleted = false;
-
+    
+    // Fetch appointments for the doctor
     const appointments = await Appointment.find(query)
       .populate('user', 'name email')
       .sort({ date: 1 });
@@ -114,16 +116,16 @@ exports.getAppointmentsByDoctor = async (req, res) => {
 // Upload Report
 exports.uploadTestReport= async (req, res) => {
  try {
+
     const appointmentId = req.params.id;
     const { testUpload } = req.body; 
-
+    
+    // Validate input
     if (!testUpload) {
-      return res.status(400).json({
-        success: false,
-        message: 'Test report URL is required',
-      });
+      return res.status(400).json({ success: false, message: 'Test report URL is required', });
     }
 
+    // Update appointment with test report URL
     const updatedAppointment = await Appointment.findByIdAndUpdate(
       appointmentId,
       { testReports: testUpload },
@@ -145,14 +147,22 @@ exports.uploadTestReport= async (req, res) => {
   }
 };
 
+
 //Upload Prescription
 exports.uploadPrescription = async (req, res) => {
   try {
     const appointmentId = req.params.id;
     const { testUpload } = req.body; 
+    
+    // Validate input
+    if (!updatedAppointment) {
+      return res.status(404).json({
+        success: false,
+        message: 'Appointment not found',
+      });
+    }
 
- 
-    if (!testUpload) {
+    if (!testUpload) { 
       return res.status(400).json({
         success: false,
         message: 'Prescription URL is required',
@@ -194,7 +204,10 @@ exports.uploadPrescription = async (req, res) => {
 //Get appointment by id
 exports.getAppointmentById = async (req, res) => {
   try {
+    // Get appointment ID from params
     const { appointmentId } = req.params;
+
+    // Find appointment by ID
     const appointment = await Appointment.findById(appointmentId)
       .populate('doctor', 'name _id')
       .populate('user', 'name _id');
@@ -209,10 +222,13 @@ exports.getAppointmentById = async (req, res) => {
   }
 };
 
-//Get appintment by unique room id
+
+
+// Get appintment by unique room id
 exports.getAppointmentByRoomId = async (req, res) => {
-  const { roomId } = req.params;
   try {
+    const { roomId } = req.params;
+    // Find appointment by room ID
     const appointment = await Appointment.findOne({ roomId });
     if (!appointment) {
       return res.status(404).json({ message: "Appointment not found" });
@@ -223,18 +239,25 @@ exports.getAppointmentByRoomId = async (req, res) => {
   }
 };
 
+
+
 //mark appointment as completed after vidoes call
 exports.markAppointmentCompleted = async (req, res) => {
   try {
-    const {userId} = req.params.id;
+    const { userId } = req.params;
+
+    // Find appointment by ID
     const appointment = await Appointment.findById(userId); 
     if (!appointment) {
       return res.status(404).json({ message: "Not found" });
     }
-
+    
+    // Mark as completed
     appointment.isCompleted = true;
+
+    // Save changes
     await appointment.save();
-    res.status(200).json({ message: "Marked as completed" });
+    res.status(200).json({ message: "Appointment Completed" });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
   }

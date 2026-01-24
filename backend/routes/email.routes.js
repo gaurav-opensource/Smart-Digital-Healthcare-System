@@ -1,6 +1,6 @@
 // backend/routes/emailRoute.js
 const express = require("express");
-const nodemailer = require("nodemailer");
+
 
 const {transporter}  = require('../config/emailConfig')
 
@@ -25,6 +25,7 @@ const sendEmail = async ({ to, subject, text, html }) => {
     return false;
   }
 };
+
 
 // Single test route
 router.post("/send-email", async (req, res) => {
