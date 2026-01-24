@@ -1,10 +1,10 @@
-# 🏥 Smart Digital Healthcare System
+# 🏥 SmartCare Platform
 
-**(Full Stack Telemedicine Platform + AI Medical Report Analyzer)**
+**(End-to-end Healthcare Management & Telemedicine System)**
 
-Smart Digital Healthcare System is a **full-stack healthcare platform** designed to enable seamless doctor–patient interaction through digital consultations, secure data handling, and intelligent medical report analysis.
+SmartCare Platform is a **full-stack healthcare platform** designed to enable seamless doctor–patient interaction through digital consultations, secure data handling, and intelligent medical report analysis.
 
-The platform supports **role-based dashboards**, **real-time video consultations**, **secure medical report uploads**, **AI-powered report analysis using FastAPI**, and **cloud-based storage**, delivering a complete and modern telehealth solution.
+The platform supports  **role-based dashboards**, **real-time video consultations**,  **secure medical report uploads**,  **AI-Powered Medical Report Analysis & Smart Doctor Recommendation**, and **cloud-based storage**, delivering a complete and modern telehealth solution.
 
 ---
 
@@ -13,36 +13,36 @@ The platform supports **role-based dashboards**, **real-time video consultations
 * [About the Project](#about-the-project)
 * [Key Features](#key-features)
 * [Technology Stack](#technology-stack)
+  
 * [Getting Started](#getting-started)
-
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+    
 * [Project Workflow](#project-workflow)
-
   * [Patient Flow](#patient-flow)
   * [Doctor Flow](#doctor-flow)
   * [Admin Flow](#admin-flow)
+    
 * [AI Medical Report Analyzer](#ai-medical-report-analyzer)
 * [Demo Videos & Screenshots](#demo-videos--screenshots)
 * [Future Enhancements](#future-enhancements)
-* [License](#license)
 * [Contact](#contact)
 
 ---
 
 ## 📖 About the Project
 
-**Smart Digital Healthcare System** is an end-to-end **online healthcare management platform** that connects patients, doctors, and administrators on a single secure system.
+**SmartCare Platform** is an end-to-end **online healthcare management platform** that connects patients, doctors, and administrators on a single secure system.
 
 It provides:
 
-* Smart doctor discovery
-* Appointment scheduling
-* Real-time video consultations
-* Secure medical report handling
-* AI-powered medical report interpretation
+* 1 - Smart doctor discovery
+* 2 - Appointment scheduling
+* 3 - Real-time video consultations
+* 4 - Secure medical report handling
+* 5 - AI-powered medical report interpretation
 
-The project focuses on **scalability, security, and real-world healthcare workflows**.
+SmartCare Platform focuses on scalability, security, and real-world healthcare workflows, enabling doctors to easily create and manage their profiles while allowing patients to seamlessly discover, consult, and book appointments with the right doctors.
 
 ---
 
@@ -74,9 +74,10 @@ The project focuses on **scalability, security, and real-world healthcare workfl
   * Qualifications
   * Experience
   * Availability
+ 
 * Patients manage:
-
   * Personal health profile
+  * Appointments dashboard
   * Medical reports
 
 ---
@@ -93,6 +94,7 @@ The project focuses on **scalability, security, and real-world healthcare workfl
 
 * Date & time-based appointment scheduling
 * Appointment status tracking:
+* payment System
 
   * Pending
   * Upcoming
@@ -115,9 +117,9 @@ The project focuses on **scalability, security, and real-world healthcare workfl
 
 ---
 
-### 💊 Digital Prescription Management
+### 💊 Prescription Management
 
-* Doctors generate prescriptions post consultation
+* Doctors upload prescription
 * Patients can view and download prescriptions
 
 ---
