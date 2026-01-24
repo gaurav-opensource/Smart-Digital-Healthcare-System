@@ -263,4 +263,6 @@ exports.markAppointmentCompleted = async (req, res) => {
   }
 };
 
+//Appointment Controller
+
 

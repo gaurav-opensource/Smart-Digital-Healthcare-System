@@ -41,4 +41,6 @@ router.get('/:id', auth, restrictTo('user'), getAppointmentByRoomId);
 router.put('/:id/complete', auth, restrictTo('user'), markAppointmentCompleted);
 
 
+
+// Export the router
 module.exports = router;

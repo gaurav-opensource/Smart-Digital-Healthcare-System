@@ -17,4 +17,6 @@ router.post("/capture-order/:orderId", auth, captureOrder);
 // Get all payments for a user or doctor
 router.get("/payments/:id", auth, getPayments);
 
+
+// Export the router
 module.exports = router;

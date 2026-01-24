@@ -20,7 +20,7 @@ const loginSchema = Joi.object({
 });
 
 
-// Handle user register functionality
+// Handle user register 
 exports.register = async (req, res) => {
     try {
         const { error } = registerSchema.validate(req.body);

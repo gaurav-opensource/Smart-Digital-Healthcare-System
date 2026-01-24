@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 
-import Home from "../pages/user/home.js";
+import Home from "../pages/user/Home.js";
 import UserProfile from "../pages/user/UserProfile";
 import DoctorListPage from "../pages/user/DoctorSearchPage.js";
 import AppointmentForm from "../pages/user/Apponinment";

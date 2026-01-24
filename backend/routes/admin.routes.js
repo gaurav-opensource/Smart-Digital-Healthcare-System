@@ -16,4 +16,5 @@ router.put('/verify-doctor/:id', auth, adminController.verifyDoctor);
 router.get('/stats', adminController.getAdminStats);
 
 
+// Export the router
 module.exports = router;

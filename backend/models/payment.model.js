@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 
-// Payment Schema
+// Payment Schema Using PayPal
 const paymentSchema = new mongoose.Schema(
   {
     userId: { 

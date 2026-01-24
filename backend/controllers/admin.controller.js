@@ -61,7 +61,7 @@ exports.register = async (req, res) => {
 
 
 
-// Admin Login
+//login
 exports.login = async (req, res) => {
     try {
         // Validate input

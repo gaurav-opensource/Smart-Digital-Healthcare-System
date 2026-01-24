@@ -19,5 +19,5 @@ router.get('/profile', auth, restrictTo('user'), authController.profile);
 router.get('/search-doctors', authController.searchDoctors);
 
 
-
+// Export the router
 module.exports = router;

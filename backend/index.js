@@ -32,7 +32,8 @@ app.get('/', (req, res) => {
 
 const frontendUrl = "https://smart-digital-healthcare-system.onrender.com/";
 
-// Routes
+
+// Use Routes
 app.use('/api/admin', AdminRoute);
 app.use('/api/users', UserRoute);
 app.use('/api/doctors', DoctorRoute);
@@ -42,24 +43,23 @@ app.use('/api/ratings', RatingRoute);
 app.use('/api/send', emailRoute);
 app.use('/api/report', PredictRoute);
 
+
+// Logger Middleware
 app.use((req, res, next) => {
   logger.info(`${req.method} ${req.url}`);
   next();
 });
 
-
-
-
-
+// Error Handling Middleware
 app.use((err, req, res, next) => {
   logger.error(`${err.message}`);
   res.status(500).json({ message: 'Something went wrong' });
 });
 
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 5000;
 
-
+// Start Server
 app.listen(PORT, () => {
   logger.info(`Server running at http://localhost:${PORT}`);
 });

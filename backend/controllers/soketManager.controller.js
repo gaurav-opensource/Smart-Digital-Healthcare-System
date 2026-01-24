@@ -5,7 +5,7 @@ let messages = {};
 let timeOnline = {};
 
 
-// Socket for vidoes call
+// Socket for vidoes-call
 const connectToSocket = (server) => {
     const io = new Server(server, {
         cors: {

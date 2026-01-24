@@ -25,5 +25,5 @@ router.put('/update-profile', auth, doctorController.updateDoctorProfile);
 
 router.get('/getdoctor', doctorController.getDoctors);
 
-
+// Export the router
 module.exports = router;

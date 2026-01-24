@@ -11,4 +11,6 @@ router.post("/", createRating);
 router.get("/doctor/:doctorId", getDoctorRatings);
 
 
+
+// Export the router
 module.exports = router;

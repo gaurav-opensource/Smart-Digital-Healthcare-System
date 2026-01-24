@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 
-import DoctorHome from "../pages/doctor/home";
+import DoctorHome from "../pages/doctor/Home";
 import DoctorProfile from "../pages/doctor/Profile";
 import EditProfile from "../pages/doctor/EditProfile";
 import DoctorDashboardPage from "../pages/doctor/DoctorDashboard";

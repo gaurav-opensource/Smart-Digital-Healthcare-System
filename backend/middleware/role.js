@@ -3,7 +3,7 @@ const Doctor = require('../models/doctor.model');
 const Admin = require('../models/admin.model');
 
 
-//Restric TO the role
+// Role-Based Access Control Middleware
 const restrictTo = (...roles) => {
     return async (req, res, next) => {
         try {

@@ -3,7 +3,7 @@ const Appointment = require('../models/appointment.model');
 
 
 
-//Create Rating for a Completed Appointment 
+//Create Rating 
 exports.createRating = async (req, res) => {
   try {
     const { appointmentId, rating, comment } = req.body;

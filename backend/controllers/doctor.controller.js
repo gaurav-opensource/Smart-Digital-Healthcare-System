@@ -3,7 +3,9 @@ const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 const Doctor = require('../models/doctor.model');
 
-//doctor Schema
+
+
+// Doctor Schema
 const doctorRegisterSchema = Joi.object({
   name: Joi.string().required(),
   email: Joi.string().email().required(),
