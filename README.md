@@ -5,7 +5,7 @@
 ### *AI-Powered Healthcare Management & Telemedicine System*
 
 <p align="center">
-  <img src="src/assets/smartcare-platform-infographic.png" alt="SmartCare Infographic" width="90%" />
+  <img src="assets/smartcare-platform-infographic.png" alt="SmartCare Infographic" width="90%" />
 </p>
 
 <p align="center">
