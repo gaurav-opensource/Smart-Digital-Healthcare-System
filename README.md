@@ -38,7 +38,7 @@ This project reflects **real-world healthcare workflows**, focusing on **scalabi
 ## 🏠 Home Page Preview
 
 <p align="center">
-  <img src="frontend/src/assets/image.png alt="SmartCare Home Page" width="85%" />
+  <img src="assets/image.png"    alt="SmartCare Home Page" width="85%" />
 </p>
 
 ---
