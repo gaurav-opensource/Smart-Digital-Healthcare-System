@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 
-import BASE_URL from '../../apiConfig';
+import BASE_URL from '../../api/api';
 
 export default function AddDoctorCard({ doctorId }) {
   const [cardNumber, setCardNumber] = useState("");

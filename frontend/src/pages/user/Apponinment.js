@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
-import BASE_URL from "../../apiConfig";
+import BASE_URL from "../../api/api";
 
 const AppointmentForm = () => {
   const { doctorId } = useParams();
@@ -25,10 +25,9 @@ const AppointmentForm = () => {
       doctorId,
       appointmentDate,
       description,
-      amount: 100, // not required now, but kept for interview explanation
+      amount: 100, // static amount for demo
     };
 
-    console.log("📤 Sending appointmentData:", appointmentData);
 
     try {
       const res = await axios.post(
@@ -44,9 +43,6 @@ const AppointmentForm = () => {
       console.log("✔️ Appointment Created:", res.data);
       alert("Appointment created successfully!");
 
-      // PAYMENT FLOW (DISABLED FOR DEMO)
-      // This is real money flow → Commented for safety.
-      // navigate("/user/payment", { state: appointmentData });
 
       navigate("/user/payment");
     } catch (error) {

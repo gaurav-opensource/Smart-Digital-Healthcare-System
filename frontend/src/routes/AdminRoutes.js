@@ -1,6 +1,6 @@
 import { Route } from "react-router-dom";
 
-import AdminHome from "../pages/admin/Home";
+import AdminHome from "../pages/admin/adminHome";
 import AdminProfilePage from "../pages/admin/adminProfile";
 
 const AdminRoutes = (

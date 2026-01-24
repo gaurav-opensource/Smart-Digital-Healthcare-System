@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import BASE_URL from "../../apiConfig";
+import BASE_URL from "../../api/api";
 
-export default function PaymentPage({ appointmentId, doctorId, userId }) {
+const PaymentPage = ({ appointmentId, doctorId, userId }) => {
   const [userCardNumber, setUserCardNumber] = useState("");
   const [expiry, setExpiry] = useState("");
   const [cvv, setCvv] = useState("");
@@ -118,3 +118,5 @@ export default function PaymentPage({ appointmentId, doctorId, userId }) {
     </div>
   );
 }
+
+export default PaymentPage;

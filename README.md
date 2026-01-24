@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 # 🏥 SmartCare Platform
+=======
+# 🏥 SmartCare Platefrom
+>>>>>>> Stashed changes
 
 **(End-to-end Healthcare Management & Telemedicine System)**
 

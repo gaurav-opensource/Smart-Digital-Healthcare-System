@@ -31,19 +31,18 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData, token, userRole) => {
     
-    console.log("Logging in user:", userData);
-    localStorage.setItem('token', token);
-    localStorage.setItem('role', userRole);
-    localStorage.setItem('user', JSON.stringify(userData));
-    localStorage.setItem('userId', userData.id); 
-
-  
-    setUser(userData);
-    setRole(userRole);
-    setIsAuthenticated(true);
+      localStorage.setItem('token', token);
+      localStorage.setItem('role', userRole);
+      localStorage.setItem('user', JSON.stringify(userData));
+      localStorage.setItem('userId', userData.id); 
 
     
-    navigate(`/${userRole}/home`);
+      setUser(userData);
+      setRole(userRole);
+      setIsAuthenticated(true);
+
+      
+      navigate(`/${userRole}/home`);
   };
 
   // Logout function

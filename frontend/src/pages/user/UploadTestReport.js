@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import BASE_URL from "../../api/api";
 
 const UploadTestReport = ({ appointmentId, onUploadSuccess }) => {
   const [pdfFile, setPdfFile] = useState(null);
@@ -35,7 +36,7 @@ const UploadTestReport = ({ appointmentId, onUploadSuccess }) => {
       const pdfUrl = await uploadPdfToCloudinary();
 
       await axios.put(
-        `http://localhost:5000/api/appointments/${appointmentId}/test-upload`,
+        `${BASE_URL}/appointments/${appointmentId}/test-report`,
         { testUpload: pdfUrl },
         {
           headers: {

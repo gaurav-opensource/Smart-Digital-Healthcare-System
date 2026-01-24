@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import UploadPrescription from './UploadPrescription';
 
-import BASE_URL from '../../apiConfig';
+
+import BASE_URL from '../../api/api';
 
 const DoctorDashboardPage = () => {
   const [appointments, setAppointments] = useState([]);
@@ -107,8 +108,11 @@ const DoctorDashboardPage = () => {
       { key: 'completed', label: 'Completed' },
     ];
 
+    // Determine current step index
     const currentIndex = steps.findIndex((s) => s.key === status);
 
+
+    // Render the tracker
     return (
       <div className="flex items-center gap-2 mt-3">
         {steps.map((step, idx) => (
@@ -139,7 +143,7 @@ const DoctorDashboardPage = () => {
     );
   };
 
-  // --------- Render ---------
+  //Transition and loading states
   if (loading) {
     return <p className="text-center text-gray-600 mt-10 text-lg">Loading dashboard...</p>;
   }
@@ -148,6 +152,7 @@ const DoctorDashboardPage = () => {
     return <p className="text-center text-red-600 mt-10 text-lg">{error}</p>;
   }
 
+  // Main render
   return (
     <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto bg-white shadow-lg rounded-xl p-8">
@@ -242,5 +247,7 @@ const DoctorDashboardPage = () => {
     </div>
   );
 };
+
+
 
 export default DoctorDashboardPage;

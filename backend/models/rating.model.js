@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// Rating Schema
 const ratingSchema = new mongoose.Schema({
   user: { 
     type: mongoose.Schema.Types.ObjectId, 

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import adminService from '../../../src/Services/admin.service';
+import { useEffect, useState } from 'react';
+import adminService from '../../services/admin.service';
 
 
 const AdminProfilePage = () => {
@@ -21,6 +21,7 @@ const AdminProfilePage = () => {
     fetchData();
   }, []);
 
+  // Verify Doctor Handler
   const verifyDoctorHandler = async (doctorId) => {
     try {
       await adminService.verifyDoctor(doctorId);
@@ -30,8 +31,11 @@ const AdminProfilePage = () => {
     }
   };
 
+  // Loading state
   if (!admin) return <p className="text-center mt-10 text-gray-500">Loading admin profile...</p>;
 
+
+  // Render Admin Profile and Unverified Doctors
   return (
      <div className="max-w-7xl mx-auto p-6 pt-11">
       <div className="bg-white p-6 rounded shadow mb-6">

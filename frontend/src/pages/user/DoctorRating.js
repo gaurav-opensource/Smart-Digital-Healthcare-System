@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import BASE_URL from '../../apiConfig';
+import BASE_URL from '../../api/api';
 
 
 

@@ -1,8 +1,7 @@
-import axios from 'axios';
+const BASE_URL = process.env.REACT_APP_API_URL + '/api';
 
-const API = axios.create({
-  baseURL: 'http://localhost:5000/api',
-});
+if (!process.env.REACT_APP_API_URL) {
+  throw new Error('REACT_APP_API_URL not defined in environment');
+}
 
-
-export default API;
+export default BASE_URL;

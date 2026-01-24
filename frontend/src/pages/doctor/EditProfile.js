@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-const BASE_URL = "http://localhost:5000/api";// 
+import BASE_URL from '../../api/api';
 
 const EditProfile = () => {
   const [formData, setFormData] = useState({
@@ -10,7 +10,7 @@ const EditProfile = () => {
     phoneNumber: '',
     location: '',
     address: '',
-    availability: [{ date: '', startTime: '', endTime: '' }], // array of objects
+    availability: [{ date: '', startTime: '', endTime: '' }], 
     specialization: '',
     fees: '',
     about: '',
@@ -114,6 +114,7 @@ const EditProfile = () => {
     }
   };
 
+  // Render loading state
   if (loading) {
     return (
       <div className="min-h-screen flex justify-center items-center">

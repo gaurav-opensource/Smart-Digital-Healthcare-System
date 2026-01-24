@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// Appointment Schema
 const appointmentSchema = new mongoose.Schema(
   {
     user: {

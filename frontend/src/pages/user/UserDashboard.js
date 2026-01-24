@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import UploadTestReport from './UploadTestReport';
 
-import BASE_URL from '../../apiConfig';
+import BASE_URL from '../../api/api';
 
 const UserDashboardPage = () => {
   const [appointments, setAppointments] = useState([]);

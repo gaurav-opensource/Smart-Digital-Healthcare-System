@@ -5,7 +5,9 @@ import imageCompression from 'browser-image-compression';
 import {
   TextField, Button, Typography, Box, Alert, MenuItem, CircularProgress, Grid
 } from '@mui/material';
-import BASE_URL from '../apiConfig';
+
+import { uploadToCloudinary } from "../services/cloudinary.service";
+import BASE_URL from '../api/api';
 
 const roleOptions = [
   { value: 'user', label: 'User' },
@@ -32,12 +34,12 @@ const SignupPage = () => {
   const alertRef = useRef();
   const navigate = useNavigate();
 
-  // ✅ Handle form inputs
+  // Handle form inputs
   const handleChange = (e) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // ✅ Compress and store file
+  // Compress and store file
   const handleFileChange = async (e) => {
     const { name, files } = e.target;
     if (files.length === 0) return;
@@ -51,35 +53,9 @@ const SignupPage = () => {
     } else if (name === 'certification') {
       setCertificationFile(files[0]);
     }
-  };
+  };  
 
-  // ✅ Cloudinary Upload Helper
-  const uploadToCloudinary = async (file, type = 'image') => {
-    const data = new FormData();
-    data.append('file', file);
-    data.append('upload_preset', 'ml_default');
-    data.append('cloud_name', 'dznnyaj0z');
-    data.append('folder', 'Healthcare');
-
-    const url = type === 'image'
-      ? 'https://api.cloudinary.com/v1_1/dznnyaj0z/image/upload'
-      : 'https://api.cloudinary.com/v1_1/dznnyaj0z/raw/upload';
-
-    const source = axios.CancelToken.source();
-    const timeout = setTimeout(() => source.cancel("Upload timeout"), 15000);
-
-    try {
-      const res = await axios.post(url, data, { cancelToken: source.token });
-      clearTimeout(timeout);
-      return res.data.secure_url;
-    } catch (err) {
-      clearTimeout(timeout);
-      console.error('Cloudinary upload failed:', err);
-      throw new Error('File upload failed. Please try again.');
-    }
-  };
-
-  // ✅ Handle Signup Submit
+  // Handle Signup Submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
@@ -117,7 +93,7 @@ const SignupPage = () => {
         certificationURL = cert;
       }
 
-      // ✅ Prepare payload
+      // Prepare payload
       let payload = {
         name: formData.name,
         email: formData.email,
@@ -140,13 +116,13 @@ const SignupPage = () => {
         };
       }
 
-      // ✅ Call backend API
+      // Call backend API
       const res = await axios.post(`${BASE_URL}${endpoint}`, payload);
 
       setSuccess(res.data.message || 'Signup successful! Please log in.');
       navigate('/login');
 
-      // ✅ Reset form
+      // Reset form
       setFormData({
         name: '', email: '', password: '', location: '',
         phoneNumber: '', licenseNumber: '', fees: '', specialization: '',

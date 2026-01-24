@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 
-import BASE_URL from '../../apiConfig';
+import BASE_URL from '../../api/api';
 
 const DoctorProfile = () => {
   const [doctor, setDoctor] = useState(null);

@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// Payment Schema
 const paymentSchema = new mongoose.Schema(
   {
     userId: { 

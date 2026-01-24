@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import BASE_URL from '../../apiConfig'
+import BASE_URL from '../../api/api';
 
 const DoctorProfile = () => {
   const [doctor, setDoctor] = useState(null);

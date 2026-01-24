@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { Button, TextField, Rating as MuiRating, Typography, Box } from '@mui/material';
 import { useParams } from 'react-router-dom';
-import BASE_URL from '../../../src/apiConfig'; 
+import BASE_URL from '../../api/api'; 
 const SubmitRating = () => {
   const { appointmentId, doctorId } = useParams();
   const [rating, setRating] = useState(0);
@@ -12,14 +12,12 @@ const SubmitRating = () => {
   const handleSubmit = async () => {
     try {
       const token = localStorage.getItem('token');
-      // Log the token to the browser console
-      console.log('JWT Token:', token || 'No token found in localStorage');
-      // Log the request payload
-      console.log('Request Payload:', { doctorId, appointmentId, rating, comment });
+  
       if (!token) {
         setMessage('No token found. Please log in.');
         return;
       }
+
       const response = await axios.post(
         `${BASE_URL}/ratings/add`,
         { doctorId, appointmentId, rating, comment },
@@ -33,6 +31,8 @@ const SubmitRating = () => {
     }
   };
 
+
+  // ================= Render =================
   return (
     <Box sx={{ maxWidth: 400, mx: 'auto', mt: 4 }}>
       <Typography variant="h6">Rate Your Doctor</Typography>
@@ -57,5 +57,7 @@ const SubmitRating = () => {
     </Box>
   );
 };
+
+
 
 export default SubmitRating;

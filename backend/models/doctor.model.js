@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// Doctor Schema
 const doctorSchema = new mongoose.Schema({
   name: {
     type: String,

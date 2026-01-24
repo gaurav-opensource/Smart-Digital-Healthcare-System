@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 
-const AdminHomePage = () => {
+const AdminHome = () => {
   const adminName = "Admin"; 
 
  
@@ -140,4 +140,4 @@ const AdminHomePage = () => {
   );
 };
 
-export default AdminHomePage;
+export default AdminHome;
