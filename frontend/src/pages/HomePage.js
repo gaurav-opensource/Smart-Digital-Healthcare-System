@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import mainImage from '../assert/Home.jpg';
 import aboutImage from '../assert/About.png';
 
+// Home Page Component
 export default function HomePage() {
   const boxesRef = useRef([]);
   const [visibleCards, setVisibleCards] = useState([]);

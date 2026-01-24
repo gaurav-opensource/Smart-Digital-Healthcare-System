@@ -2,6 +2,8 @@ import { Outlet } from 'react-router-dom';
 import Navbar from '../components/Navbar'; 
 import Footer from '../components/Footer';
 
+
+// Main Layout Component
 export default function MainLayout() {
   return (
     <div className="flex flex-col min-h-screen">

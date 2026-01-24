@@ -2,6 +2,8 @@ import { useState, useEffect, useContext } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext"; 
 
+
+// Navbar Component
 export default function Navbar() {
   const { isAuthenticated, role, logout } = useContext(AuthContext); 
   const [isOpen, setIsOpen] = useState(false);

@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import authService from "../services/auth.service";
 
+
+// Login Page Component
 const LoginPage = () => {
   const { login } = useContext(AuthContext);
   const [role, setRole] = useState("user");

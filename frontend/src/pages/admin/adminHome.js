@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import BASE_URL from "../../api/api";
 
 
 const AdminHome = () => {
@@ -19,7 +20,7 @@ const AdminHome = () => {
   useEffect(() => {
     const fetchStats = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/admin/stats");
+        const response = await fetch(`${BASE_URL}/admin/stats`);
         if (!response.ok) throw new Error("Failed to fetch stats");
         const data = await response.json();
 

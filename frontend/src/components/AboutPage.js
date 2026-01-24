@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
+
+// About Page Content
 const aboutSections = [
   {
     title: 'Our Mission',

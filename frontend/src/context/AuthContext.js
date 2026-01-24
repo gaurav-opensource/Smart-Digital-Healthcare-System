@@ -1,6 +1,8 @@
 import { createContext, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+
+// Authentication Context
 export const AuthContext = createContext({
   user: null,
   isAuthenticated: false,

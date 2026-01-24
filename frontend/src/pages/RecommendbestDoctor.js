@@ -8,6 +8,8 @@ function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
 
+
+// Recommend Best Doctor Page Component
 function RecommendBestDoctor() {
   const query = useQuery();
   const specialist = query.get("specialist");

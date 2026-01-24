@@ -20,6 +20,8 @@ const specializations = [
   'Pediatrics', 'Neurology', 'Dermatology', 'Other',
 ];
 
+
+// Signup Page Component
 const SignupPage = () => {
   const [role, setRole] = useState('user');
   const [formData, setFormData] = useState({

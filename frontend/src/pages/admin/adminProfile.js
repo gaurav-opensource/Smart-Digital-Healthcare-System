@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import adminService from '../../services/admin.service';
 
 
+// Admin Profile Page Component
 const AdminProfilePage = () => {
   const [admin, setAdmin] = useState(null);
   const [doctors, setDoctors] = useState([]);

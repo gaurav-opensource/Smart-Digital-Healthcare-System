@@ -5,6 +5,8 @@ import { motion } from "framer-motion";
 import { Loader2, FileUp, Brain } from "lucide-react";
 import BASE_URL from "../api/api";
 
+
+// Risk Predict Page Component
 function RiskPredictPage() {
   const [file, setFile] = useState(null);
   const [result, setResult] = useState(null);
